@@ -22,7 +22,8 @@ export default async function(project, {entry, output}) {
 		...bundle_id,
 		// bundle.resources
 		bundled_resources,
-		bundler_meta: await getBundlerInformation()
+		bundler_meta: await getBundlerInformation(),
+		package_json: project.package_json
 	})
 
 	const options = {
