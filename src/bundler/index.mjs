@@ -23,7 +23,8 @@ export default async function(project, {entry, output}) {
 		// bundle.resources
 		bundled_resources,
 		bundler_meta: await getBundlerInformation(),
-		package_json: project.package_json
+		package_json: project.package_json,
+		anio_project_config: project.config
 	})
 
 	const options = {
