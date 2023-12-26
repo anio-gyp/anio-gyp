@@ -5,7 +5,7 @@
     "anio_jsbundler": "./src/cli.mjs"
   },
   "dependencies": {
-    "@anio-jsbundler/core": "^0.1.0",
+    "@anio-jsbundler/core": "^0.1.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.7.0"
   },
