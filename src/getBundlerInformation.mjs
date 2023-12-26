@@ -2,6 +2,10 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import {fileURLToPath} from "node:url"
 
+import {createRequire} from "node:module"
+
+const require = createRequire(import.meta.url)
+
 const __dirname = path.dirname(
 	fileURLToPath(import.meta.url)
 )
@@ -14,10 +18,8 @@ async function readJSONFile(file) {
 
 async function getVersionOfDependency(dependency) {
 	const package_json = await readJSONFile(
-		path.resolve(
-			__dirname, "..", "node_modules",
-			"@anio-jsbundler", dependency, "package.json"
-		)
+		// module must export "package.json" for this to work!
+		require.resolve(`@anio-jsbundler/${dependency}/package.json`)
 	)
 
 	return package_json.version
