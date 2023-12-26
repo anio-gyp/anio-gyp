@@ -2,6 +2,9 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import {fileURLToPath} from "node:url"
+import {createRequire} from "node:module"
+
+const require = createRequire(import.meta.url)
 
 const __dirname = path.dirname(
 	fileURLToPath(import.meta.url)
@@ -12,10 +15,8 @@ async function loadVirtualModule(build_context) {
 		JSON.stringify(build_context)
 	)
 
-	const bundle_runtime_src = path.resolve(
-		__dirname,
-		"..", "..", "node_modules",
-		"@anio-jsbundler", "runtime", "dist", "virtual.mjs"
+	const bundle_runtime_src = require.resolve(
+		`@anio-jsbundler/runtime/dist/virtual.mjs`
 	)
 
 	let virtual_module = (
