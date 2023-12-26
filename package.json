@@ -10,6 +10,9 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.7.0"
   },
+  "peerDependencies": {
+    "@anio-jsbundler/runtime": "0.1.x"
+  },
   "bundleDependencies": [
     "@anio-jsbundler/core"
   ]
