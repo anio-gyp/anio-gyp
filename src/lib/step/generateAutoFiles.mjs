@@ -9,10 +9,16 @@ export default async function(options, project) {
 		colorize("white.bold", "⚙️  Auto Generation") + "\n\n"
 	)
 
-	for (const file of project.files_to_autogenerate) {
-		const [file_path, generator] = file
+	for (const entry of project.files_to_autogenerate) {
+		const [file_path, generator] = entry
+		let file_options = entry.length === 3 ? entry[2] : {}
+		let autogen_comment = true
 
-		let contents = await getAutoFileComment()
+		if ("append_autogen_comment" in file_options) {
+			autogen_comment = file_options.autogen_comment
+		}
+
+		let contents = autogen_comment ? await getAutoFileComment() : ""
 
 		contents += await generator(project, file_path)
 

@@ -26,12 +26,21 @@ function shortenBundleId(bundle_id) {
 	return short_bundle_id
 }
 
+function createNoticeFile() {
+	return `This directory is managed by @anio-jsbundler/bundler.
+Do **NOT** edit these files directly or place any files or folder inside here - they will be deleted.\n`
+}
+
 export default async function(project) {
 	let context = {}
 
 	project.bundle_id = await calculateBundleID(project)
 	project.short_bundle_id = shortenBundleId(project.bundle_id)
 	project.bundler_meta = await getBundlerInformation()
+
+	project.files_to_autogenerate.push(["NOTICE.txt", createNoticeFile, {
+		append_autogen_comment: false
+	}])
 
 	if (project.config.type === "lib") {
 		project.files_to_autogenerate.push(["util/wrapFactory.mjs", copySupportFile])
