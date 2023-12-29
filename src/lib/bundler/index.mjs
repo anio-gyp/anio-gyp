@@ -3,7 +3,6 @@ import resolve from "@rollup/plugin-node-resolve"
 import rollupPluginFactory from "./plugin.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
-import getBundlerInformation from "./getBundlerInformation.mjs"
 
 export default async function(options, project) {
 	const {entry, output} = project.context.bundler
@@ -15,7 +14,7 @@ export default async function(options, project) {
 		short_bundle_id: project.short_bundle_id,
 		// bundle.resources
 		bundled_resources: project.bundled_resources,
-		bundler_meta: await getBundlerInformation(),
+		bundler_meta: project.bundler_meta,
 		package_json: project.package_json,
 		anio_project_config: project.config
 	})

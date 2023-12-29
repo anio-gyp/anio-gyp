@@ -7,6 +7,7 @@ import determineFilesForRemoval from "./determineFilesForRemoval.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
 import calculateBundleID from "./calculateBundleID.mjs"
+import getBundlerInformation from "./getBundlerInformation.mjs"
 
 import {
 	isRegularDirectorySync,
@@ -30,6 +31,7 @@ export default async function(project) {
 
 	project.bundle_id = await calculateBundleID(project)
 	project.short_bundle_id = shortenBundleId(project.bundle_id)
+	project.bundler_meta = await getBundlerInformation()
 
 	if (project.config.type === "lib") {
 		project.files_to_autogenerate.push(["util/wrapFactory.mjs", copySupportFile])

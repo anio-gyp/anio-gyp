@@ -36,5 +36,17 @@ export default function(options, project) {
 		colorize("gray", "    Number of exports       : ") + "n/a\n"
 	)
 
+	process.stderr.write(
+		colorize("gray", "    Bundler version         : ") + "v" + project.bundler_meta.bundler.version + "\n"
+	)
+
+	process.stderr.write(
+		colorize("gray", "    Utilities version       : ") + "v" + project.bundler_meta.bundler.utilities + "\n"
+	)
+
+	process.stderr.write(
+		colorize("gray", "    Runtime version         : ") + "v" + project.bundler_meta.runtime.version + "\n"
+	)
+
 	process.stderr.write("\n")
 }
