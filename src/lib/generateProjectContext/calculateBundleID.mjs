@@ -14,6 +14,16 @@ export default async function(project) {
 		path.join(project.root, "src")
 	)
 
+	files_to_hash.push({
+		relative_path: "package.json",
+		absolute_path: path.resolve(project.root, "package.json")
+	})
+
+	files_to_hash.push({
+		relative_path: "anio_project.mjs",
+		absolute_path: path.resolve(project.root, "anio_project.mjs")
+	})
+
 	for (const {type, relative_path, absolute_path} of src_files) {
 		if (type === "dir") continue
 		// ignore auto-generated files
