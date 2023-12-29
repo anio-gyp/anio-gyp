@@ -3,31 +3,24 @@ import resolve from "@rollup/plugin-node-resolve"
 import rollupPluginFactory from "./plugin.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
-import getBundlerInformation from "../getBundlerInformation.mjs"
+import getBundlerInformation from "./getBundlerInformation.mjs"
 
-import {
-	calcBundleID,
-	findBundledResources
-} from "@anio-jsbundler/core"
-
-export default async function(project, {entry, output}) {
-	const bundle_id = await calcBundleID(project)
-	const bundled_resources = await findBundledResources(
-		project
-	)
+export default async function(options, project) {
+	const {entry, output} = project.context.bundler
 
 	const plugin = rollupPluginFactory({
 		/* build context */
 		// bundle id
-		...bundle_id,
+		bundle_id: project.bundle_id,
+		short_bundle_id: project.short_bundle_id,
 		// bundle.resources
-		bundled_resources,
+		bundled_resources: project.bundled_resources,
 		bundler_meta: await getBundlerInformation(),
 		package_json: project.package_json,
 		anio_project_config: project.config
 	})
 
-	const options = {
+	const rollup_options = {
 		input: entry,
 
 		output: {
@@ -58,9 +51,9 @@ export default async function(project, {entry, output}) {
 	process.chdir(project.root)
 
 	try {
-		const bundle = await rollup(options)
+		const bundle = await rollup(rollup_options)
 
-		await bundle.write(options.output)
+		await bundle.write(rollup_options.output)
 	} finally {
 		process.chdir(cwd)
 	}

@@ -3,11 +3,13 @@ import process from "node:process"
 import fs from "node:fs/promises"
 import main from "./main.mjs"
 import path from "node:path"
+import generateProjectContext from "./lib/generateProjectContext/index.mjs"
+
 const args = process.argv.slice(2)
 
 if (args.length !== 1) {
 	process.stderr.write(
-		`Usage: anio_jsbundler <project-root>\n`
+		`Usage: anio_jsbundler <project-root> [--no-auto-files]\n`
 	)
 	process.exit(2)
 }
@@ -58,7 +60,19 @@ try {
 }
 
 try {
-	await main(project)
+	project.warnings = []
+	project.files_to_autogenerate = []
+	project.files_to_remove = []
+	// null means directory "bundle.resources" does not exist
+	project.bundled_resources = null
+
+	// what's inside the context variable
+	// is dependent on the project type
+	project.context = await generateProjectContext(project)
+
+	await main({
+
+	}, project)
 } catch (error) {
 	process.stderr.write(`${error.message}\n`)
 	process.exit(1)

@@ -27,13 +27,13 @@ async function getVersionOfDependency(dependency) {
 
 export default async function() {
 	const package_json = await readJSONFile(
-		path.resolve(__dirname, "..", "package.json")
+		path.resolve(__dirname, "..", "..", "..", "package.json")
 	)
 
 	return {
 		bundler: {
 			version: package_json.version,
-			core: await getVersionOfDependency("core")
+			utilities: await getVersionOfDependency("utilities")
 		},
 		runtime: {
 			version: await getVersionOfDependency("runtime")
