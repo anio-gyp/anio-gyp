@@ -24,7 +24,7 @@ export default async function(project) {
 		library_functions,
 		bundler: {
 			entry: "src/auto/index.mjs",
-			output: "dist/library.mjs"
+			output: "build/library.mjs"
 		}
 	}
 }
