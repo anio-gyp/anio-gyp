@@ -16,11 +16,13 @@ export default async function(options, project) {
 	await printWarnings(options, project)
 	await printHousekeeping(options, project)
 
-	await removeFiles(options, project)
+	if (options.flags["hk"] && options.flags["hk-remove"]) await removeFiles(options, project)
 	await createAutoDirStructure(options, project)
-	await scrubFiles(options, project)
-	await generateAutoFiles(options, project)
-	await invokeBundler(options, project)
+
+	if (options.flags["hk"] && options.flags["hk-scrub"]) await scrubFiles(options, project)
+
+	if (options.flags["autogen"]) await generateAutoFiles(options, project)
+	if (options.flags["bundler"]) await invokeBundler(options, project)
 
 	if (project.warnings.length) {
 		print(

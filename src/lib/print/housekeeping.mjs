@@ -33,14 +33,20 @@ function printFilesToBeScrubbed(project) {
 }
 
 export default async function(options, project) {
+	let do_remove = options.flags["hk"] && options.flags["hk-remove"]
+	let remove_verb = do_remove ? "will" : "would"
+
 	print(colorize("white.bold", "🧹 Housekeeping") + "\n\n")
 
-	print(`    🗑️  The following files will be removed:\n\n`)
+	print(`    🗑️  The following files ${remove_verb} be removed:\n\n`)
 
 	printFilesToBeRemoved(project)
 	print("\n")
 
-	print(`    🧼 The folllowing files will be auto-generated, they need scrubbing:\n\n`)
+	let do_scrub = options.flags["hk"] && options.flags["hk-scrub"]
+	let scrub_verb = do_scrub ? "will" : "would"
+
+	print(`    🧼 The folllowing files ${scrub_verb} be auto-generated, they need scrubbing:\n\n`)
 
 	printFilesToBeScrubbed(project)
 	print("\n")

@@ -6,12 +6,56 @@ import path from "node:path"
 import generateProjectContext from "./lib/generateProjectContext/index.mjs"
 
 const args = process.argv.slice(2)
+const flags = args.length > 1 ? args.slice(1) : []
+const valid_flags = [
+	"-no-hk", "-no-hk-scrub", "-no-hk-remove", "-no-autogen", "-no-bundler"
+]
+let flags_obj = {}
 
-if (args.length !== 1) {
+if (!args.length) {
 	print(
-		`Usage: anio_jsbundler <project-root> [--no-auto-files]\n`
+		`Usage: anio_jsbundler <project-root> [...flags]
+
+    Possible flags and their meaning:
+
+        -no-hk
+             Disable housekeeping, same as specifying -no-hk-scrub and -no-hk-remove together.
+
+        -no-hk-scrub
+             Disable scrubbing of auto-generated files
+
+        -no-hk-remove
+             Disable removal of obsolete auto-generated files
+
+        -no-autogen
+             Disable auto-generation of files
+
+        -no-bundler
+             Disable invocation of bundler
+\n`
 	)
 	process.exit(2)
+}
+
+for (const flag of valid_flags) {
+	if (flag.startsWith("-no-")) {
+		flags_obj[flag.slice(4)] = true
+	} else {
+		flags_obj[flag.slice(1)] = false
+	}
+}
+
+for (const flag of flags) {
+	if (!valid_flags.includes(flag)) {
+		print(`invalid flag '${flag}'\n`)
+		process.exit(2)
+	}
+
+	if (flag.startsWith("-no-")) {
+		flags_obj[flag.slice(4)] = false
+	} else {
+		flags_obj[flag.slice(1)] = true
+	}
 }
 
 let project = {
@@ -71,7 +115,7 @@ try {
 	project.context = await generateProjectContext(project)
 
 	await main({
-
+		flags: flags_obj
 	}, project)
 } catch (error) {
 	print(`${error.message}\n`)
