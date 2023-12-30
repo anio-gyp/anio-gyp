@@ -1,3 +1,4 @@
+import print from "../print.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
 
@@ -5,7 +6,7 @@ import {colorize} from "@anio-jsbundler/utilities"
 import getAutoFileComment from "../getAutoFileComment.mjs"
 
 export default async function(options, project) {
-	process.stderr.write(
+	print(
 		colorize("white.bold", "⚙️  Auto Generation") + "\n\n"
 	)
 
@@ -26,10 +27,10 @@ export default async function(options, project) {
 			path.join(project.root, "src", "auto", file_path), contents
 		)
 
-		process.stderr.write(
+		print(
 			colorize("gray", `    - src/auto/${file_path}`) + "\n"
 		)
 	}
 
-	process.stderr.write("\n")
+	print("\n")
 }

@@ -11,7 +11,7 @@ export default async function(options, project) {
 	for (const file of project.files_to_remove) {
 		const file_path = path.join(project.root, "src", "auto", file)
 
-		//process.stderr.write(
+		//print(
 		//	colorize("gray", `removing '${file}'\n`)
 		//)
 

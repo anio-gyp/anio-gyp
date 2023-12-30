@@ -15,7 +15,7 @@ export default async function(options, project) {
 		const file_dir_path = path.dirname(file_path)
 
 		if (!isRegularDirectorySync(file_dir_path)) {
-			//process.stderr.write(
+			//print(
 			//	colorize("gray", `creating dir 'src/auto/${path.dirname(file)}'\n`)
 			//)
 

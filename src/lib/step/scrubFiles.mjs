@@ -9,7 +9,7 @@ export default async function(options, project) {
 			project.root, "src", "auto", file
 		)
 
-		//process.stderr.write(
+		//print(
 		//	colorize("gray", `scrubbing '${file}'\n`)
 		//)
 

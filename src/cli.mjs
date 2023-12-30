@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import process from "node:process"
+import print from "./lib/print.mjs"
 import fs from "node:fs/promises"
 import main from "./main.mjs"
 import path from "node:path"
@@ -8,7 +8,7 @@ import generateProjectContext from "./lib/generateProjectContext/index.mjs"
 const args = process.argv.slice(2)
 
 if (args.length !== 1) {
-	process.stderr.write(
+	print(
 		`Usage: anio_jsbundler <project-root> [--no-auto-files]\n`
 	)
 	process.exit(2)
@@ -22,7 +22,7 @@ let project = {
 try {
 	project.root = await fs.realpath(args[0])
 } catch (error) {
-	process.stderr.write(
+	print(
 		`${args[0]}: no such file or directory.\n`
 	)
 	process.exit(2)
@@ -39,7 +39,7 @@ try {
 		project.config = config
 	}
 } catch (error) {
-	process.stderr.write(
+	print(
 		`Could not read anio_project.mjs: ${error.message}\n`
 	)
 	process.exit(2)
@@ -53,7 +53,7 @@ try {
 
 	project.package_json = package_json
 } catch (error) {
-	process.stderr.write(
+	print(
 		`Could not read package.json: ${error.message}\n`
 	)
 	process.exit(2)
@@ -74,6 +74,6 @@ try {
 
 	}, project)
 } catch (error) {
-	process.stderr.write(`${error.message}\n`)
+	print(`${error.message}\n`)
 	process.exit(1)
 }

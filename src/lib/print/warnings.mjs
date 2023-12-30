@@ -1,7 +1,9 @@
+import print from "../print.mjs"
+
 import {colorize} from "@anio-jsbundler/utilities"
 
 function printWarning(warning) {
-	process.stderr.write(`    ⚠️  ${warning}.\n`)
+	print(`    ⚠️  ${warning}.\n`)
 }
 
 export default function(options, project) {
@@ -13,9 +15,7 @@ export default function(options, project) {
 		return colorize("yellow.bold", str)
 	}
 
-	process.stderr.write(
-		colorize("white.bold", "⚠️  Warnings") + "\n\n"
-	)
+	print(colorize("white.bold", "⚠️  Warnings") + "\n\n")
 
 	for (const {id, data} of project.warnings) {
 		switch (id) {
@@ -37,5 +37,5 @@ export default function(options, project) {
 		}
 	}
 
-	process.stderr.write("\n")
+	print("\n")
 }

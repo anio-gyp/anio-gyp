@@ -1,3 +1,4 @@
+import print from "./lib/print.mjs"
 import printHousekeeping from "./lib/print/housekeeping.mjs"
 import printProjectSummary from "./lib/print/projectSummary.mjs"
 import printWarnings from "./lib/print/warnings.mjs"
@@ -22,11 +23,11 @@ export default async function(options, project) {
 	await invokeBundler(options, project)
 
 	if (project.warnings.length) {
-		process.stderr.write(
+		print(
 			colorize("yellow.bold", `⚠️  Bundling complete, but make sure to read the warnings above.\n`)
 		)
 	} else {
-		process.stderr.write(
+		print(
 			colorize("green.bold", `✅ Bundling complete, no warnings.\n`)
 		)
 	}

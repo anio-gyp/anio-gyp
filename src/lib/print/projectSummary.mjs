@@ -1,3 +1,5 @@
+import print from "../print.mjs"
+
 import {colorize} from "@anio-jsbundler/utilities"
 
 export default function(options, project) {
@@ -16,37 +18,37 @@ export default function(options, project) {
 		has_bundled_resources = `yes (${n})`
 	}
 
-	process.stderr.write(
+	print(
 		colorize("white.bold", "🏡 Project Summary") + "\n\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Type                    : ") + project_type_str + "\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Has bundled resources ? : ") + has_bundled_resources + "\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Bundle id               : ") + project_bundle_id_str + "\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Number of exports       : ") + "n/a\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Bundler version         : ") + "v" + project.bundler_meta.bundler.version + "\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Utilities version       : ") + "v" + project.bundler_meta.bundler.utilities + "\n"
 	)
 
-	process.stderr.write(
+	print(
 		colorize("gray", "    Runtime version         : ") + "v" + project.bundler_meta.runtime.version + "\n"
 	)
 
-	process.stderr.write("\n")
+	print("\n")
 }
