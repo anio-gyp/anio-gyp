@@ -1,3 +1,5 @@
+import print from "../print.mjs"
+
 import {rollup} from "rollup"
 import resolve from "@rollup/plugin-node-resolve"
 import rollupPluginFactory from "./plugin.mjs"
@@ -36,7 +38,7 @@ export default async function(options, project) {
 		plugins: [plugin(), resolve()],
 
 		onLog(level, error, handler) {
-			process.stderr.write(
+			print(
 				`[${level}] ${error.message}\n`
 			)
 		}
