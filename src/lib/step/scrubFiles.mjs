@@ -14,7 +14,7 @@ export default async function(options, project) {
 		//)
 
 		await fs.writeFile(
-			file_path, `/* If you can see this comment something went wrong during bundling */\n`
+			file_path, `/* If you can see this comment something went wrong during bundling */\n\nstop\n`
 		)
 	}
 }
