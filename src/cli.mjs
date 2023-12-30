@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {colorize} from "@anio-jsbundler/utilities"
 import print from "./lib/print.mjs"
 import fs from "node:fs/promises"
 import main from "./main.mjs"
@@ -118,6 +119,8 @@ try {
 		flags: flags_obj
 	}, project)
 } catch (error) {
-	print(`${error.message}\n`)
+	print(colorize("red.bold", `⛔ A fatal error occurred: ${error.message}\n\n`))
+	print(colorize("gray", error.stack) + "\n")
+
 	process.exit(1)
 }
