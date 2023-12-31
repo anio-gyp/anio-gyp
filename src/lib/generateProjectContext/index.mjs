@@ -27,7 +27,7 @@ function shortenBundleId(bundle_id) {
 }
 
 function createNoticeFile() {
-	return `This directory is managed by @anio-jsbundler/bundler.
+	return `This directory is managed by anio-jsbundler.
 Do **NOT** edit these files directly or place any files or folder inside here - they will be deleted.\n`
 }
 

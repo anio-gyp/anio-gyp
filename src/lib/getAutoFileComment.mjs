@@ -17,7 +17,7 @@ export default async function() {
 
 	let str = ``
 
-	str += `/* Warning: this file was automatically created by @anio-jsbundler/bundler v${pkg.version} */\n`
+	str += `/* Warning: this file was automatically created by anio-jsbundler v${pkg.version} */\n`
 	str += `/* You should commit this file to source control */\n\n`
 
 	return str
