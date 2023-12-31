@@ -1,8 +1,8 @@
 {
-  "name": "@anio-jsbundler/bundler",
+  "name": "anio-jsbundler",
   "version": "0.3.0",
   "bin": {
-    "anio_jsbundler": "./src/cli.mjs"
+    "anio-jsbundler": "./src/cli.mjs"
   },
   "dependencies": {
     "@anio-jsbundler/utilities": "^0.6.0",
