@@ -1,4 +1,5 @@
 import createNamedAnonymousFunction from "./createNamedAnonymousFunction.mjs"
+import wrapFunction from "./wrapFunction.mjs"
 import {createDefaultContextAsync} from "@anio-jsbundler/runtime"
 
 /**
@@ -22,7 +23,6 @@ export default function(fn_name, factory) {
 
 		const fn = factory(context)
 
-		// make sure created function is named correctly
-		return createNamedAnonymousFunction(fn_name, fn)
+		return wrapFunction(fn_name, fn)
 	})
 }

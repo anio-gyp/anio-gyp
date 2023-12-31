@@ -44,7 +44,9 @@ export default async function(project) {
 
 	if (project.config.type === "lib") {
 		project.files_to_autogenerate.push(["util/wrapFactory.mjs", copySupportFile])
+		project.files_to_autogenerate.push(["util/wrapFunction.mjs", copySupportFile])
 		project.files_to_autogenerate.push(["util/createNamedAnonymousFunction.mjs", copySupportFile])
+		project.files_to_autogenerate.push(["util/createModifierFunction.mjs", copySupportFile])
 
 		context = await lib(project)
 	}

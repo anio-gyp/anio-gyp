@@ -50,7 +50,7 @@ function addFunction(fn, generator) {
 
 	let named_exports = [{
 		key: fn_name,
-		value: `createNamedAnonymousFunction("${fn_name}", ${fn_source})`
+		value: `wrapFunction("${fn_name}", ${fn_source})`
 	}, {
 		key: fn_factory_name,
 		value: `wrapFactory("${fn_name}", ${fn_factory_source})`
@@ -67,7 +67,7 @@ export default async function(project) {
 	let src = ``
 
 	src += `import wrapFactory from "./util/wrapFactory.mjs"
-import createNamedAnonymousFunction from "./util/createNamedAnonymousFunction.mjs"
+import wrapFunction from "./util/wrapFunction.mjs"
 import {createDefaultContextAsync} from "@anio-jsbundler/runtime"
 
 `
