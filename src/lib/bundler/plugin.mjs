@@ -16,7 +16,7 @@ async function loadVirtualModule(build_context) {
 	)
 
 	const bundle_runtime_src = require.resolve(
-		`@anio-jsbundler/runtime/dist/virtual.mjs`
+		`@anio-jsbundler/project/dist/virtual.mjs`
 	)
 
 	let virtual_module = (
@@ -35,17 +35,21 @@ export default function(build_context) {
 			name: "anio-jsbundler-resolver-plugin",
 
 			resolveId(source) {
-				if (source === "@anio-jsbundler/runtime") {
+				if (source === "@anio-jsbundler/project") {
 					// this signals that Rollup should not ask other plugins or check
 					// the file system to find this id
 					return source
+				}
+				// refuse to resolve @anio-jsbundler/runtime
+				else if (source === "@anio-jsbundler/runtime") {
+					throw new Error(`Please do not use '@anio-jsbundler/runtime' imports anymore. Use @anio-jsbundler/project instead.`)
 				}
 
 				return null // other ids should be handled as usually
 			},
 
 			async load(id) {
-				if (id === "@anio-jsbundler/runtime") {
+				if (id === "@anio-jsbundler/project") {
 					return await loadVirtualModule(build_context)
 				}
 

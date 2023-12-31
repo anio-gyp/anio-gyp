@@ -68,7 +68,7 @@ export default async function(project) {
 
 	src += `import wrapFactory from "./util/wrapFactory.mjs"
 import wrapFunction from "./util/wrapFunction.mjs"
-import {createDefaultContextAsync} from "@anio-jsbundler/runtime"
+import {createDefaultContextAsync} from "@anio-jsbundler/project"
 
 `
 

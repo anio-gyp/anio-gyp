@@ -50,7 +50,7 @@ export default async function(project) {
 		pre_padding: 8
 	})
 
-	src += `import {createDefaultContextAsync} from "@anio-jsbundler/runtime"\n`
+	src += `import {createDefaultContextAsync} from "@anio-jsbundler/project"\n`
 
 	src += groupedImport("./library.mjs", grouped_import, {
 		additional_padding: 9

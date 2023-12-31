@@ -36,7 +36,7 @@ export default async function() {
 			utilities: await getVersionOfDependency("utilities")
 		},
 		runtime: {
-			version: await getVersionOfDependency("runtime")
+			version: await getVersionOfDependency("project")
 		}
 	}
 }
