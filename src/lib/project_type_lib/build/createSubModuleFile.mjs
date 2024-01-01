@@ -57,6 +57,7 @@ export default {
 			const fn_name = fn.canonical_name.slice(submodule.length + 1)
 
 			push(fn.canonical_name, fn_name)
+			push(fn.canonical_name + "Factory", fn_name + "Factory")
 		}
 
 		source_code += groupedImport("../library.mjs", grouped_import)
