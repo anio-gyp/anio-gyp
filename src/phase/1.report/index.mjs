@@ -7,6 +7,7 @@ export default {
 
 	async run(project) {
 		print(`    The following files will be updated or created:\n`)
+		print("\n")
 
 		const l1 = Math.max.apply(null, project.state.files.autogenerate.map(x => {
 			return x[0].length
@@ -29,5 +30,22 @@ export default {
 
 			print(`        ${"build/" + (file[0]).padEnd(offset + 3)} ${colorize("gray", generator)}\n`)
 		}
+
+		print("\n")
+		print(`    The following files will be included in the bundle:\n`)
+		print("\n")
+
+		if (project.state.bundle.resources === null) {
+			print(colorize("gray", "        No files will be included.\n"))
+		} else {
+			for (const resource in project.state.bundle.resources) {
+				print(`        bundle.resources/${resource}\n`)
+			}
+		}
+
+		const {hash} = project.state.bundle.id
+
+		print("\n")
+		print(`    The bundle id was calculated to be : ${colorize("gray", hash)}\n`)
 	}
 }

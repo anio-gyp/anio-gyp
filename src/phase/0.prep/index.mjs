@@ -3,6 +3,8 @@ import print from "../../lib/print.mjs"
 import runLibrary from "./lib/index.mjs"
 import addSupportFiles from "./addSupportFiles.mjs"
 import scanDirectories from "./scanDirectories.mjs"
+import findBundledResources from "./findBundledResources.mjs"
+import calculateBundleID from "./calculateBundleID.mjs"
 
 import {colorize} from "@anio-jsbundler/utilities"
 
@@ -31,5 +33,11 @@ export default {
 			...project.state.files.autogenerate.map(x => `src/auto/${x[0]}`),
 			...project.state.files.build.map(x => `build/${x[0]}`)
 		]
+
+		await findBundledResources(project)
+
+		// bundle id is calculated last because
+		// this function reads project.state.bundle.resources
+		await calculateBundleID(project)
 	}
 }

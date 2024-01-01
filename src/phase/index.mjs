@@ -21,6 +21,11 @@ const phases = [
 
 export default async function(project) {
 	project.state = {
+		bundle: {
+			id: null,
+			resources: null
+		},
+
 		warnings: [],
 
 		contextual_data: {},
