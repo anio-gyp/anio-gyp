@@ -1,21 +1,21 @@
 import path from "node:path"
 import print from "../../lib/print.mjs"
 
-import {
-	createDirTreeFromListSync
-} from "@anio-jsbundler/utilities"
+import createDirTreeFromList from "./createDirTreeFromList.mjs"
 
 export default {
 	title: "Tree generation",
 	icon: "🌳",
 
 	async run(project) {
-		createDirTreeFromListSync(
-			path.join(project.root, "src", "auto"), project.state.files.autogenerate
+		await createDirTreeFromList(
+			project,
+			project.state.files.autogenerate.map(file => `src/auto/${file[0]}`)
 		)
 
-		createDirTreeFromListSync(
-			path.join(project.root, "build"), project.state.files.build
+		await createDirTreeFromList(
+			project,
+			project.state.files.build.map(file => `build/${file[0]}`)
 		)
 	}
 }
