@@ -1,3 +1,20 @@
+# anio-jsbundler
+
+```
+Usage: anio-jsbundler <project-root> [...flags]
+
+    Possible flags and their meaning:
+
+        -no-scrub
+             Disable scrubbing of auto-generated files
+
+        -no-remove
+             Disable removal of obsolete auto-generated files
+
+        -no-autogen
+             Disable auto-generation of files
+```
+
 ## Types of projects
 
 ### CLI
