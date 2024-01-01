@@ -50,11 +50,17 @@ export default async function(project) {
 		state.files.build.push([`submodule/${submodule}.mjs`, createSubModuleFile, {submodule}])
 	}
 
+	let submodules_str = ""
+
+	if (submodules.length) {
+		submodules_str = ` (${submodules.join(", ")})`
+	}
+
 	const n_exports = library_functions.length
 	const n_submods = submodules.length
 
 	print(
-		`    Scan of src/export            ${colorize("gray", `Found ${n_exports} exports with ${n_submods} sub-modules`)}\n`
+		`    Scan of src/export            ${colorize("gray", `Found ${n_exports} exports and ${n_submods} sub-modules${submodules_str}`)}\n`
 	)
 
 	state.contextual_data = {library_functions}
