@@ -4,6 +4,7 @@ import fs from "node:fs/promises"
 import {colorize} from "@anio-jsbundler/utilities"
 import {
 	isRegularDirectorySync,
+	isRegularFileSync,
 	removeDirectorySync
 } from "@anio-jsbundler/utilities/fs"
 
@@ -17,7 +18,7 @@ export default async function(options, project) {
 
 		if (isRegularDirectorySync(file_path)) {
 			removeDirectorySync(file_path)
-		} else {
+		} else if (isRegularFileSync(file_path)) {
 			await fs.unlink(file_path)
 		}
 	}
