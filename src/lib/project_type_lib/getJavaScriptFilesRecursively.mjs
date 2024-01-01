@@ -21,7 +21,7 @@ export default async function getJavaScriptFilesRecursively(
 			if (relative_path.endsWith(".mjs")) {
 				ret.push(relative_path)
 			} else {
-				project.warnings.push({
+				project.state.warnings.push({
 					id: "lib.unsupported.file",
 					data: {
 						relative_path

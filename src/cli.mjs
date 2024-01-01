@@ -2,37 +2,30 @@
 import {colorize} from "@anio-jsbundler/utilities"
 import print from "./lib/print.mjs"
 import fs from "node:fs/promises"
-import main from "./main.mjs"
 import path from "node:path"
-import generateProjectContext from "./lib/generateProjectContext/index.mjs"
+import runPhases from "./phase/index.mjs"
 
 const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
-	"-no-hk", "-no-hk-scrub", "-no-hk-remove", "-no-autogen", "-no-bundler"
+	"-no-scrub", "-no-remove", "-no-autogen"
 ]
 let flags_obj = {}
 
 if (!args.length) {
 	print(
-		`Usage: anio_jsbundler <project-root> [...flags]
+		`Usage: anio-jsbundler <project-root> [...flags]
 
     Possible flags and their meaning:
 
-        -no-hk
-             Disable housekeeping, same as specifying -no-hk-scrub and -no-hk-remove together.
-
-        -no-hk-scrub
+        -no-scrub
              Disable scrubbing of auto-generated files
 
-        -no-hk-remove
+        -no-remove
              Disable removal of obsolete auto-generated files
 
         -no-autogen
              Disable auto-generation of files
-
-        -no-bundler
-             Disable invocation of bundler
 \n`
 	)
 	process.exit(2)
@@ -105,19 +98,9 @@ try {
 }
 
 try {
-	project.warnings = []
-	project.files_to_autogenerate = []
-	project.files_to_remove = []
-	// null means directory "bundle.resources" does not exist
-	project.bundled_resources = null
+	project.flags = flags_obj
 
-	// what's inside the context variable
-	// is dependent on the project type
-	project.context = await generateProjectContext(project)
-
-	await main({
-		flags: flags_obj
-	}, project)
+	await runPhases(project)
 } catch (error) {
 	print(colorize("red.bold", `⛔ A fatal error occurred: ${error.message}\n\n`))
 	print(colorize("gray", error.stack) + "\n")

@@ -11,7 +11,7 @@ export default function(project, library) {
 
 		if (reserved.includes(fn)) {
 
-			project.warnings.push({
+			project.state.warnings.push({
 				id: "lib.reserved_name",
 				data: {
 					entry

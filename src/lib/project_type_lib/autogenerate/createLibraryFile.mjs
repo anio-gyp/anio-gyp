@@ -61,32 +61,37 @@ function addFunction(fn, generator) {
 	})
 }
 
-export default async function(project) {
-	const {library_functions} = project.context
 
-	let src = ``
+export default {
+	label: "lib:createLibraryFile",
 
-	src += `import wrapFactory from "./util/wrapFactory.mjs"
-import wrapFunction from "./util/wrapFunction.mjs"
-import {createDefaultContextAsync} from "@anio-jsbundler/project"
+	async run(project) {
+		const {library_functions} = project.state.contextual_data
 
-`
+		let src = ``
 
-	src += `/* Module's default context */
-const _module_default_context = await createDefaultContextAsync()
+		src += `import wrapFactory from "./support_files/wrapFactory.mjs"
+	import wrapFunction from "./support_files/wrapFunction.mjs"
+	import {createDefaultContextAsync} from "@anio-jsbundler/project"
 
-export function getUsedDefaultContext() {
-	return _module_default_context
-}
+	`
 
-`
-	let generator = new IdentifierGenerator()
+		src += `/* Module's default context */
+	const _module_default_context = await createDefaultContextAsync()
 
-	for (const fn of library_functions) {
-		src += `/* ${fn.canonical_path} */\n`
-		src += addFunction(fn, generator)
-		src += "\n"
+	export function getUsedDefaultContext() {
+		return _module_default_context
 	}
 
-	return src.slice(0, src.length - 1)
+	`
+		let generator = new IdentifierGenerator()
+
+		for (const fn of library_functions) {
+			src += `/* ${fn.canonical_path} */\n`
+			src += addFunction(fn, generator)
+			src += "\n"
+		}
+
+		return src.slice(0, src.length - 1)
+	}
 }

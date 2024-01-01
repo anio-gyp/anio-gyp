@@ -37,7 +37,7 @@ export default async function(project) {
 
 			entries[entry_index].autogen = null
 
-			project.warnings.push({
+			project.state.warnings.push({
 				id: "lib.duplicate_export",
 				data: {
 					canonical_path,

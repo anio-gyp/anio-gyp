@@ -1,4 +1,4 @@
-import print from "../print.mjs"
+import print from "../lib/print.mjs"
 
 import {colorize} from "@anio-jsbundler/utilities"
 
@@ -6,8 +6,8 @@ function printWarning(warning) {
 	print(`    ⚠️  ${warning}.\n`)
 }
 
-export default function(options, project) {
-	if (!project.warnings.length) {
+export default function(warnings) {
+	if (!warnings.length) {
 		return
 	}
 
@@ -17,7 +17,7 @@ export default function(options, project) {
 
 	print(colorize("white.bold", "⚠️  Warnings") + "\n\n")
 
-	for (const {id, data} of project.warnings) {
+	for (const {id, data} of warnings) {
 		switch (id) {
 			case "lib.unsupported.file": {
 				printWarning(`Unsupported file in source folder ${h(data.relative_path)} - this file will be ignored`)
