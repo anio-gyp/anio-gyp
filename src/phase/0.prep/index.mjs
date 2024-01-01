@@ -14,6 +14,7 @@ export default {
 
 	async run(project) {
 		if (project.config.type === "lib") {
+			print(`    Type of project               ${colorize("gray", "Library")}\n`)
 			await runLibrary(project)
 		}
 
@@ -23,8 +24,8 @@ export default {
 		const n_build    = project.state.files.build.length
 
 		print(
-			`    Files to auto-generate      ${colorize("gray", `${n_auto_gen} files will be auto-generated`)}\n` +
-			`    Files to build              ${colorize("gray", `${n_build} files will be built`)}\n\n`
+			`    Files to auto-generate        ${colorize("gray", `${n_auto_gen} files will be auto-generated`)}\n` +
+			`    Files to build                ${colorize("gray", `${n_build} files will be built`)}\n\n`
 		)
 
 		await scanDirectories(project)

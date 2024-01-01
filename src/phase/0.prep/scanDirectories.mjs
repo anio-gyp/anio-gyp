@@ -12,7 +12,7 @@ export default async function(project) {
 	).map(entry => `src/auto/${entry}`)
 
 	print(
-		`    Scan of src/auto            ${colorize("gray", `Found ${remove_src_auto_list.length} out of date files or folders`)}\n`
+		`    Scan of src/auto              ${colorize("gray", `Found ${remove_src_auto_list.length} out of date files or folders`)}\n`
 	)
 
 	const remove_build_list = determineObsoleteFilesFromListSync(
@@ -20,7 +20,7 @@ export default async function(project) {
 	).map(entry => `build/${entry}`)
 
 	print(
-		`    Scan of build               ${colorize("gray", `Found ${remove_build_list.length} out of date files or folders`)}\n`
+		`    Scan of build                 ${colorize("gray", `Found ${remove_build_list.length} out of date files or folders`)}\n`
 	)
 
 	project.state.files.remove = [

@@ -6,6 +6,15 @@ export default {
 	icon: "🔍",
 
 	async run(project) {
+		const {meta} = project
+
+		print(`    Information about the bundler:\n`)
+		print("\n")
+		print(`        Version of bundler        ${colorize("gray", "v" + meta.bundler.version)}\n`)
+		print(`        Version of utilities      ${colorize("gray", "v" + meta.bundler.utilities)}\n`)
+		print(`        Version of runtime        ${colorize("gray", "v" + meta.runtime.version)}\n`)
+		print("\n")
+
 		print(`    The following files will be updated or created:\n`)
 		print("\n")
 
@@ -43,9 +52,9 @@ export default {
 			}
 		}
 
-		const {hash} = project.state.bundle.id
+		const {hash, n_hashed_files} = project.state.bundle.id
 
 		print("\n")
-		print(`    The bundle id was calculated to be : ${colorize("gray", hash)}\n`)
+		print(`    The bundle id was calculated to be : ${colorize("gray", `${hash} (from ${n_hashed_files} files)`)}\n`)
 	}
 }

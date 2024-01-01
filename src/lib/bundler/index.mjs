@@ -7,18 +7,22 @@ import path from "node:path"
 import fs from "node:fs/promises"
 
 export default async function(project, {entry, output}) {
-	const plugin = rollupPluginFactory({})
-	/*{
-		// build context
+	const plugin = rollupPluginFactory({
 		// bundle id
-		bundle_id: project.bundle_id,
-		short_bundle_id: project.short_bundle_id,
+		bundle_id: project.state.bundle.id.hash,
+		short_bundle_id: project.state.bundle.id.short,
 		// bundle.resources
-		bundled_resources: project.bundled_resources,
-		bundler_meta: project.bundler_meta,
+		bundled_resources: project.state.bundle.resources,
+
+		// bundler meta
+		bundler_meta: project.meta,
+
+		// project's package.json
 		package_json: project.package_json,
+
+		// anio_project.mjs config
 		anio_project_config: project.config
-	})*/
+	})
 
 	const rollup_options = {
 		input: entry,

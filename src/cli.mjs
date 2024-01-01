@@ -98,6 +98,7 @@ try {
 }
 
 try {
+	project.start = performance.now()
 	project.flags = flags_obj
 
 	await runPhases(project)

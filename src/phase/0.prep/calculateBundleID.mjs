@@ -29,11 +29,14 @@ export default async function(project) {
 		)
 	}
 
+	const n_hashed_files = hashes.length
+
 	const hash = await calcStringHash(
 		hashes.join(",\n")
 	)
 
 	project.state.bundle.id = {
+		n_hashed_files,
 		hash,
 		short: hash.slice(0, 4) + ".." + hash.slice(hash.length - 4)
 	}

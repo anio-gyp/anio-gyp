@@ -54,7 +54,7 @@ export default async function(project) {
 	const n_submods = submodules.length
 
 	print(
-		`    Scan of src/export          ${colorize("gray", `Found ${n_exports} exports with ${n_submods} sub-modules`)}\n`
+		`    Scan of src/export            ${colorize("gray", `Found ${n_exports} exports with ${n_submods} sub-modules`)}\n`
 	)
 
 	state.contextual_data = {library_functions}
