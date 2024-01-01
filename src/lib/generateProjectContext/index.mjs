@@ -51,6 +51,13 @@ export default async function(project) {
 		context = await lib(project)
 	}
 
+	project.files_to_autogenerate = project.files_to_autogenerate.map(entry => {
+		return [
+			path.normalize(entry[0]),
+			...entry.slice(1)
+		]
+	})
+
 	project.files_to_remove = [
 		...project.files_to_remove,
 		...await determineFilesForRemoval(project)
