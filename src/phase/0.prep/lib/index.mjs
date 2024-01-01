@@ -36,6 +36,11 @@ export default async function(project) {
 	const {state} = project
 	const library_functions = await getExportedLibraryFunctions(project)
 
+	// sort functions for consistent result
+	library_functions.sort((a, b) => {
+		return a.canonical_name.localeCompare(b.canonical_name)
+	})
+
 	state.files.autogenerate.push(["library.mjs", createLibraryFile])
 	state.files.autogenerate.push(["dict.mjs", createDictionaryFile])
 	state.files.autogenerate.push(["importWithContextAsync.mjs", createImportFile])
