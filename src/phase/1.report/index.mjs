@@ -48,7 +48,7 @@ export default {
 			print(colorize("gray", "        No files will be included.\n"))
 		} else {
 			for (const resource in project.state.bundle.resources) {
-				print(`        bundle.resources/${resource}\n`)
+				print(`        ${colorize("gray", `bundle.resources/${resource}`)}\n`)
 			}
 		}
 
