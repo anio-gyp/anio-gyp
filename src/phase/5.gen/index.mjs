@@ -43,16 +43,5 @@ export default {
 				source_code
 			)
 		}
-
-		for (const entry of project.state.files.build) {
-			const [relative_path, file_generator] = entry
-			const additional_options = entry.length === 3 ? entry[2] : {}
-
-			print(`    Build    ${colorize("gray", `build/${relative_path}`)}\n`)
-
-			await file_generator.run(
-				project, relative_path, additional_options
-			)
-		}
 	}
 }

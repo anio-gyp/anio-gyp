@@ -8,7 +8,7 @@ import runPhases from "./phase/index.mjs"
 const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
-	"-no-scrub", "-no-remove", "-no-autogen"
+	"-no-scrub", "-no-remove", "-no-autogen", "-no-build"
 ]
 let flags_obj = {}
 
@@ -26,6 +26,9 @@ if (!args.length) {
 
         -no-autogen
              Disable auto-generation of files
+
+        -no-build
+             Disable building of output files
 \n`
 	)
 	process.exit(2)

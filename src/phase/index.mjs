@@ -6,6 +6,7 @@ import hk_phase from "./2.hk/index.mjs"
 import tree_phase from "./3.tree/index.mjs"
 import scrub_phase from "./4.scrub/index.mjs"
 import gen_phase from "./5.gen/index.mjs"
+import build_phase from "./6.build/index.mjs"
 import print from "../lib/print.mjs"
 
 import {colorize} from "@anio-jsbundler/utilities"
@@ -18,7 +19,8 @@ const phases = [
 	hk_phase,
 	tree_phase,
 	scrub_phase,
-	gen_phase
+	gen_phase,
+	build_phase
 ]
 
 function round(value) {
