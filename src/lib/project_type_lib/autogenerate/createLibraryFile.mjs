@@ -71,19 +71,19 @@ export default {
 		let src = ``
 
 		src += `import wrapFactory from "./support_files/wrapFactory.mjs"
-	import wrapFunction from "./support_files/wrapFunction.mjs"
-	import {createDefaultContextAsync} from "@anio-jsbundler/project"
+import wrapFunction from "./support_files/wrapFunction.mjs"
+import {createDefaultContextAsync} from "@anio-jsbundler/project"
 
-	`
+`
 
 		src += `/* Module's default context */
-	const _module_default_context = await createDefaultContextAsync()
+const _module_default_context = await createDefaultContextAsync()
 
-	export function getUsedDefaultContext() {
-		return _module_default_context
-	}
+export function getUsedDefaultContext() {
+	return _module_default_context
+}
 
-	`
+`
 		let generator = new IdentifierGenerator()
 
 		for (const fn of library_functions) {
