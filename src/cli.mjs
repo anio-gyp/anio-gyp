@@ -8,7 +8,7 @@ import runPhases from "./phase/index.mjs"
 const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
-	"-no-scrub", "-no-remove", "-no-autogen", "-no-build"
+	"-no-scrub", "-no-remove", "-no-autogen", "-no-build", "-collapsed"
 ]
 let flags_obj = {}
 

@@ -48,14 +48,24 @@ export default async function(project) {
 		}
 	}
 
+	let collapsed_output = project.flags.collapsed
+
 	for (const phase of phases) {
-		print(
-			`${phase.icon} ${colorize("white.bold", phase.title + " phase")}\n`
-		)
+		if (collapsed_output) {
+			print(`${phase.icon} ${colorize("white", phase.title)}\n`)
+		} else {
+			print(`${phase.icon} ${colorize("white.bold", phase.title + " phase")}\n`)
+		}
+
+		if (collapsed_output) print.disable()
 
 		print("\n")
+
 		await phase.run(project)
+
 		print("\n")
+
+		if (collapsed_output) print.enable()
 	}
 
 	let color = "green"
@@ -74,16 +84,18 @@ export default async function(project) {
 		)
 	}
 
-	let n_files = 0
+	if (!collapsed_output) {
+		let n_files = 0
 
-	n_files += project.state.files.autogenerate.length
-	n_files += project.state.files.build.length
+		n_files += project.state.files.autogenerate.length
+		n_files += project.state.files.build.length
 
-	let time = (performance.now() - project.start) / 1000
+		let time = (performance.now() - project.start) / 1000
 
-	print(
-		`\n` +
-		colorize(color, `    Generated ${n_files} files in ${round(time)} second(s)`) +
-		`\n\n`
-	)
+		print(
+			`\n` +
+			colorize(color, `    Generated ${n_files} files in ${round(time)} second(s)`) +
+			`\n\n`
+		)
+	}
 }
