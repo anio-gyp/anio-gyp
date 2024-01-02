@@ -70,9 +70,9 @@ export default {
 
 		let src = ``
 
-		src += `import wrapFactory from "./support_files/wrapFactory.mjs"
+		src += `import {createDefaultContextAsync} from "@anio-jsbundler/project"
+import wrapFactory from "./support_files/wrapFactory.mjs"
 import wrapFunction from "./support_files/wrapFunction.mjs"
-import {createDefaultContextAsync} from "@anio-jsbundler/project"
 
 `
 

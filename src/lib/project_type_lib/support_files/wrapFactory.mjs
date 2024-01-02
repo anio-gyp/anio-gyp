@@ -1,6 +1,6 @@
+import {createDefaultContextAsync} from "@anio-jsbundler/project"
 import createNamedAnonymousFunction from "./createNamedAnonymousFunction.mjs"
 import wrapFunction from "./wrapFunction.mjs"
-import {createDefaultContextAsync} from "@anio-jsbundler/project"
 
 /**
  * Wraps a factory so that plugs can be specified.
