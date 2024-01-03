@@ -1,6 +1,6 @@
 {
   "name": "anio-jsbundler",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "bin": {
     "anio-jsbundler": "./src/cli.mjs"
   },
