@@ -1,6 +1,8 @@
 import print from "../../lib/print.mjs"
 
 import runLibrary from "./lib/index.mjs"
+import runCLIApp from "./cli/index.mjs"
+
 import addSupportFiles from "./addSupportFiles.mjs"
 import scanDirectories from "./scanDirectories.mjs"
 import findBundledResources from "./findBundledResources.mjs"
@@ -16,6 +18,9 @@ export default {
 		if (project.config.type === "lib") {
 			print(`    Type of project               ${colorize("gray", "Library")}\n`)
 			await runLibrary(project)
+		} else if (project.config.type === "app:cli") {
+			print(`    Type of project               ${colorize("gray", "CLI App")}\n`)
+			await runCLIApp(project)
 		}
 
 		await addSupportFiles(project)
