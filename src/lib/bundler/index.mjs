@@ -42,7 +42,7 @@ export default async function(project, {entry, output}) {
 
 		onLog(level, error, handler) {
 			print(
-				`[${level}] ${error.message}\n`
+				`    [${level}] rollup says ${error.message}\n`
 			)
 		}
 	}
