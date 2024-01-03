@@ -10,7 +10,7 @@
     "rollup": "^4.7.0"
   },
   "peerDependencies": {
-    "@anio-jsbundler/runtime": "0.1.x"
+    "@anio-jsbundler/project": "0.2.x"
   },
   "bundleDependencies": [
     "@anio-jsbundler/utilities"
