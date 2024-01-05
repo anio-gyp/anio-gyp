@@ -15,6 +15,12 @@ export default {
 			print(`    Skipping because of -no-autogen\n`)
 
 			return
+		} else if (!project.state.files.autogenerate.length) {
+			print(
+				colorize("gray", "    No files to auto-generate!\n")
+			)
+
+			return
 		}
 
 		for (const entry of project.state.files.autogenerate) {
