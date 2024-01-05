@@ -10,6 +10,7 @@ import createDictionaryFile from "../../../lib/project_type_lib/autogenerate/cre
 import createImportFile from "../../../lib/project_type_lib/autogenerate/createImportFile.mjs"
 import createIndexFile from "../../../lib/project_type_lib/autogenerate/createIndexFile.mjs"
 import createNoticeFile from "../../../lib/project_type_lib/autogenerate/createNoticeFile.mjs"
+import createVersionFile from "../../../lib/project_type_lib/autogenerate/createVersionFile.mjs"
 
 import bundleLibraryFile from "../../../lib/project_type_lib/build/bundleLibraryFile.mjs"
 import createSubModuleFile from "../../../lib/project_type_lib/build/createSubModuleFile.mjs"
@@ -46,6 +47,7 @@ export default async function(project) {
 	state.files.autogenerate.push(["importWithContextAsync.mjs", createImportFile])
 	state.files.autogenerate.push(["index.mjs", createIndexFile])
 	state.files.autogenerate.push(["NOTICE.txt", createNoticeFile, {autogen_warning_comment: false}])
+	state.files.autogenerate.push(["VERSION.txt", createVersionFile, {autogen_warning_comment: false}])
 
 	state.files.build.push(["library.mjs", bundleLibraryFile])
 

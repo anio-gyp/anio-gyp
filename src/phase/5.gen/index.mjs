@@ -31,7 +31,7 @@ export default {
 			let source_code = ``
 
 			if (add_warning_comment) {
-				source_code += await getAutoFileComment()
+				source_code += await getAutoFileComment(project)
 			}
 
 			source_code += await source_generator.run(

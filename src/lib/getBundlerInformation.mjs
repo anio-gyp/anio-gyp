@@ -1,14 +1,9 @@
 import fs from "node:fs/promises"
-import path from "node:path"
-import {fileURLToPath} from "node:url"
-
 import {createRequire} from "node:module"
 
-const require = createRequire(import.meta.url)
+import getBundlerPackageJSON from "./getBundlerPackageJSON.mjs"
 
-const __dirname = path.dirname(
-	fileURLToPath(import.meta.url)
-)
+const require = createRequire(import.meta.url)
 
 async function readJSONFile(file) {
 	let str = (await fs.readFile(file)).toString()
@@ -26,9 +21,7 @@ async function getVersionOfDependency(dependency) {
 }
 
 export default async function() {
-	const package_json = await readJSONFile(
-		path.resolve(__dirname, "..", "..", "package.json")
-	)
+	const package_json = await getBundlerPackageJSON()
 
 	return {
 		bundler: {

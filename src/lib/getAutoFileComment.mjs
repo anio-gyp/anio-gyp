@@ -1,23 +1,26 @@
-import fs from "node:fs/promises"
-import {fileURLToPath} from "node:url"
-import path from "node:path"
+import getBundlerPackageJSON from "./getBundlerPackageJSON.mjs"
 
-const __dirname = path.dirname(
-	fileURLToPath(import.meta.url)
-)
+export default async function(project) {
+	const project_type = project.config.type
+	let version_file_path = ""
 
-export default async function() {
-	const package_json = (
-		await fs.readFile(
-			path.join(__dirname, "..", "..", "package.json")
-		)
-	).toString()
+	switch (project_type) {
+		case "lib": {
+			version_file_path = "src/auto/VERSION.txt"
+		} break
+	}
 
-	const pkg = JSON.parse(package_json)
+	const pkg = await getBundlerPackageJSON()
+	const [major, minor, bug] = pkg.version.split(".")
 
 	let str = ``
 
-	str += `/* Warning: this file was automatically created by anio-jsbundler v${pkg.version} */\n`
+	str += `/* Warning: this file was automatically created by anio-jsbundler v${major}.x.x */\n`
+
+	if (version_file_path.length) {
+		str += `/* You will find more information about the specific anio-jsbundler version used inside the file src/auto/VERSION.txt */\n`
+	}
+
 	str += `/* You should commit this file to source control */\n\n`
 
 	return str

@@ -49,7 +49,7 @@ export default {
 			})
 		}
 
-		source_code += await getAutoFileComment()
+		source_code += await getAutoFileComment(project)
 
 		for (const fn of library_functions) {
 			if (!fn.canonical_path.startsWith(`${submodule}/`)) continue
