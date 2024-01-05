@@ -76,11 +76,11 @@ export default async function(project) {
 		printWarnings(project.state.warnings)
 
 		print(
-			colorize("yellow.bold", `⚠️  Bundling complete, but make sure to read the warnings above\n`)
+			colorize("yellow.bold", `⚠️  Done with warnings, make sure to read the warnings above\n`)
 		)
 	} else {
 		print(
-			colorize("green.bold", `✅ Bundling complete with no warnings\n`)
+			colorize("green.bold", `✅ Done with no warnings\n`)
 		)
 	}
 
