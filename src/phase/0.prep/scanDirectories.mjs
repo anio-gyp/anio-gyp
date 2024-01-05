@@ -17,7 +17,10 @@ export default async function(project) {
 
 	const remove_build_list = determineObsoleteFilesFromListSync(
 		path.join(project.root, "build"), project.state.files.build
-	).map(entry => `build/${entry}`)
+	).map(entry => `build/${entry}`).filter(entry_path => {
+		// keep .gitkeep files intact
+		return path.basename(entry_path) !== ".gitkeep"
+	})
 
 	print(
 		`    Scan of build                 ${colorize("gray", `Found ${remove_build_list.length} out of date files or folders`)}\n`
