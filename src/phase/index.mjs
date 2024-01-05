@@ -69,6 +69,7 @@ export default async function(project) {
 	}
 
 	let color = "green"
+	let time = (performance.now() - project.start) / 1000
 
 	if (project.state.warnings.length) {
 		color = "yellow"
@@ -76,26 +77,11 @@ export default async function(project) {
 		printWarnings(project.state.warnings)
 
 		print(
-			colorize("yellow.bold", `⚠️  Done with warnings, make sure to read the warnings above\n`)
+			colorize("yellow.bold", `⚠️  Done in ${round(time)} seconds with warnings, make sure to read the warnings above\n`)
 		)
 	} else {
 		print(
-			colorize("green.bold", `✅ Done with no warnings\n`)
-		)
-	}
-
-	if (!collapsed_output) {
-		let n_files = 0
-
-		n_files += project.state.files.autogenerate.length
-		n_files += project.state.files.build.length
-
-		let time = (performance.now() - project.start) / 1000
-
-		print(
-			`\n` +
-			colorize(color, `    Generated ${n_files} files in ${round(time)} second(s)`) +
-			`\n\n`
+			colorize("green.bold", `✅ Done in ${round(time)} seconds with no warnings\n`)
 		)
 	}
 }
