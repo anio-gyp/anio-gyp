@@ -23,7 +23,34 @@ let flags_obj = {}
 
 if (!args.length) {
 	print(
-		`Usage: anio-gyp <project-root> [...flags]
+		`Usage: anio-gyp <project-root> [...options] [...flags]
+
+    Possible options and their meaning:
+
+        --update-root-url https://anio.sh/anio-gyp/
+            Root URL to determine which project files need to be updated:
+
+                {ROOT_URL}/v{MAJOR_VERSION}/{FILE_PATH}
+
+            Example using default value:
+
+                https://anio.sh/anio-gyp/v0/.github/workflows/cicd.yaml
+
+                Returns
+
+                {
+                    "current": {
+                        "version": "current-version",
+                        "update": {
+                            "strategy": "update-strategy",
+                            "data": "update-strategy-data"
+                        }
+                    },
+                    "hashmap": {
+                        "<sha256-hash-of-v0.0.1>": "v0.0.1",
+                        "<sha256-hash-of-v0.0.2>": "v0.0.2"
+                    }
+                }
 
     Possible flags and their meaning:
 
