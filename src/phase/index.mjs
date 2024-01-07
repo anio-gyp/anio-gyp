@@ -1,5 +1,6 @@
 import getBundlerInformation from "../lib/getBundlerInformation.mjs"
 
+import update_phase from "./0.update/index.mjs"
 import prep_phase from "./1.prep/index.mjs"
 import report_phase from "./2.report/index.mjs"
 import hk_phase from "./3.hk/index.mjs"
@@ -7,6 +8,8 @@ import tree_phase from "./4.tree/index.mjs"
 import scrub_phase from "./5.scrub/index.mjs"
 import gen_phase from "./6.gen/index.mjs"
 import build_phase from "./7.build/index.mjs"
+import test_phase from "./8.test/index.mjs"
+import deploy_phase from "./9.deploy/index.mjs"
 import print from "../lib/print.mjs"
 
 import {colorize} from "@anio-jsbundler/utilities"
@@ -14,13 +17,16 @@ import {colorize} from "@anio-jsbundler/utilities"
 import printWarnings from "./printWarnings.mjs"
 
 const phases = [
+	update_phase,
 	prep_phase,
 	report_phase,
 	hk_phase,
 	tree_phase,
 	scrub_phase,
 	gen_phase,
-	build_phase
+	build_phase,
+	test_phase,
+	deploy_phase
 ]
 
 function round(value) {
@@ -41,10 +47,12 @@ export default async function(project) {
 		contextual_data: {},
 
 		files: {
+			update: [],
 			autogenerate: [],
 			build: [],
 			remove: [],
-			scrub: []
+			scrub: [],
+			test: []
 		}
 	}
 
