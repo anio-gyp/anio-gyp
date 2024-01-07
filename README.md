@@ -5,14 +5,27 @@ Usage: anio-gyp <project-root> [...flags]
 
     Possible flags and their meaning:
 
+        -no-update
+            Disable update of project files before preparation
+
         -no-scrub
-             Disable scrubbing of auto-generated files
+            Disable scrubbing of auto-generated files
 
         -no-remove
-             Disable removal of obsolete auto-generated files
+            Disable removal of obsolete auto-generated files
 
         -no-autogen
-             Disable auto-generation of files
+            Disable auto-generation of files
+
+        -no-build
+            Disable building of output files
+
+        -no-tests
+            Disable running of unit tests
+
+        -deploy
+            Needed to enable deployment phase
+
 ```
 
 ## Types of projects
