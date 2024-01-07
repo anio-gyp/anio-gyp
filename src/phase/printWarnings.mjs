@@ -19,6 +19,18 @@ export default function(warnings) {
 
 	for (const {id, data} of warnings) {
 		switch (id) {
+			case "update.changed_file": {
+				printWarning(`Didn't update changed project file ${h(data)}, run with -force-update to force update it`)
+			} break
+
+			case "update.force_updated": {
+				printWarning(`Force updated file ${h(data.file)} to ${h("v" + data.to_version)}`)
+			} break
+
+			case "update.unable_to_check": {
+				printWarning(`Unable to check for updates for file ${h(data.file)}: ${colorize("gray", data.error)}`)
+			} break
+
 			case "lib.unsupported.file": {
 				printWarning(`Unsupported file in source folder ${h(data.relative_path)} - this file will be ignored`)
 			} break
