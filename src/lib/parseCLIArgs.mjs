@@ -9,7 +9,7 @@ const valid_flags = [
 	"-no-remove",
 	"-no-autogen",
 	"-no-build",
-	"-no-tests",
+	"-tests",
 	"-deploy",
 	"-collapsed"
 ]

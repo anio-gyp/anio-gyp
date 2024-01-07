@@ -59,8 +59,8 @@ if (!args.length) {
         -no-build
             Disable building of output files
 
-        -no-tests
-            Disable running of unit tests
+        -tests
+            Run unit tests before deployment phase
 
         -deploy
             Needed to enable deployment phase

@@ -8,7 +8,7 @@ export default {
 
 	async run(project) {
 		if (!project.flags["tests"]) {
-			print(`    Skipping because -no-tests was specified\n`)
+			print(`    Skipping because -tests was not specified\n`)
 
 			return
 		}
