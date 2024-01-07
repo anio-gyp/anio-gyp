@@ -8,8 +8,13 @@ import runPhases from "./phase/index.mjs"
 const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
-	"-no-scrub", "-no-remove", "-no-autogen", "-no-build", "-collapsed"
+	"-no-scrub",
+	"-no-remove",
+	"-no-autogen",
+	"-no-build",
+	"-collapsed"
 ]
+
 let flags_obj = {}
 
 if (!args.length) {
@@ -19,16 +24,16 @@ if (!args.length) {
     Possible flags and their meaning:
 
         -no-scrub
-             Disable scrubbing of auto-generated files
+            Disable scrubbing of auto-generated files
 
         -no-remove
-             Disable removal of obsolete auto-generated files
+            Disable removal of obsolete auto-generated files
 
         -no-autogen
-             Disable auto-generation of files
+            Disable auto-generation of files
 
         -no-build
-             Disable building of output files
+            Disable building of output files
 \n`
 	)
 	process.exit(2)
