@@ -41,8 +41,8 @@ if (!args.length) {
 
     Possible flags and their meaning:
 
-        -no-update
-            Disable update of project files before preparation
+        -update
+            Enable update of project files before preparation
 
         -force-update
             Force update of files that have been changed from the original version

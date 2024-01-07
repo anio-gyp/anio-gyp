@@ -3,7 +3,7 @@ const valid_options = {
 }
 
 const valid_flags = [
-	"-no-update",
+	"-update",
 	"-force-update",
 	"-no-scrub",
 	"-no-remove",
