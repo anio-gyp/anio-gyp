@@ -4,22 +4,9 @@ import print from "./lib/print.mjs"
 import fs from "node:fs/promises"
 import path from "node:path"
 import runPhases from "./phase/index.mjs"
+import parseCLIArgs from "./lib/parseCLIArgs.mjs"
 
 const args = process.argv.slice(2)
-const flags = args.length > 1 ? args.slice(1) : []
-const valid_flags = [
-	"-no-update",
-	"-force-update",
-	"-no-scrub",
-	"-no-remove",
-	"-no-autogen",
-	"-no-build",
-	"-no-tests",
-	"-deploy",
-	"-collapsed"
-]
-
-let flags_obj = {}
 
 if (!args.length) {
 	print(
@@ -82,27 +69,6 @@ if (!args.length) {
 	process.exit(2)
 }
 
-for (const flag of valid_flags) {
-	if (flag.startsWith("-no-")) {
-		flags_obj[flag.slice(4)] = true
-	} else {
-		flags_obj[flag.slice(1)] = false
-	}
-}
-
-for (const flag of flags) {
-	if (!valid_flags.includes(flag)) {
-		print(`invalid flag '${flag}'\n`)
-		process.exit(2)
-	}
-
-	if (flag.startsWith("-no-")) {
-		flags_obj[flag.slice(4)] = false
-	} else {
-		flags_obj[flag.slice(1)] = true
-	}
-}
-
 let project = {
 	root: null,
 	config: null
@@ -149,8 +115,11 @@ try {
 }
 
 try {
+	const {flags, options} = parseCLIArgs(args.slice(1))
+
 	project.start = performance.now()
-	project.flags = flags_obj
+	project.flags = flags
+	project.options = options
 
 	await runPhases(project)
 } catch (error) {
