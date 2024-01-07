@@ -1,12 +1,42 @@
 # anio-gyp
 
 ```
-Usage: anio-gyp <project-root> [...flags]
+Usage: anio-gyp <project-root> [...options] [...flags]
+
+    Possible options and their meaning:
+
+        --update-root-url https://anio.sh/anio-gyp/
+            Root URL to determine which project files need to be updated:
+
+                {ROOT_URL}/v{MAJOR_VERSION}/{FILE_PATH}
+
+            Example using default value:
+
+                https://anio.sh/anio-gyp/v0/.github/workflows/cicd.yaml
+
+                Returns
+
+                {
+                    "current": {
+                        "version": "current-version",
+                        "update": {
+                            "strategy": "update-strategy",
+                            "data": "update-strategy-data"
+                        }
+                    },
+                    "hashmap": {
+                        "<sha256-hash-of-v0.0.1>": "v0.0.1",
+                        "<sha256-hash-of-v0.0.2>": "v0.0.2"
+                    }
+                }
 
     Possible flags and their meaning:
 
-        -no-update
-            Disable update of project files before preparation
+        -update
+            Enable update of project files before preparation
+
+        -force-update
+            Force update of files that have been changed from the original version
 
         -no-scrub
             Disable scrubbing of auto-generated files
@@ -20,8 +50,8 @@ Usage: anio-gyp <project-root> [...flags]
         -no-build
             Disable building of output files
 
-        -no-tests
-            Disable running of unit tests
+        -tests
+            Run unit tests before deployment phase
 
         -deploy
             Needed to enable deployment phase
