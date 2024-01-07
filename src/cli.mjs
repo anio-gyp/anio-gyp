@@ -8,10 +8,12 @@ import runPhases from "./phase/index.mjs"
 const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
+	"-no-update",
 	"-no-scrub",
 	"-no-remove",
 	"-no-autogen",
 	"-no-build",
+	"-deploy",
 	"-collapsed"
 ]
 
@@ -22,6 +24,9 @@ if (!args.length) {
 		`Usage: anio-jsbundler <project-root> [...flags]
 
     Possible flags and their meaning:
+
+        -no-update
+            Disable update of project files before preparation
 
         -no-scrub
             Disable scrubbing of auto-generated files
@@ -34,6 +39,9 @@ if (!args.length) {
 
         -no-build
             Disable building of output files
+
+        -deploy
+            Needed to enable deployment phase
 \n`
 	)
 	process.exit(2)
