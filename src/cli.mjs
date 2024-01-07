@@ -13,6 +13,7 @@ const valid_flags = [
 	"-no-remove",
 	"-no-autogen",
 	"-no-build",
+	"-no-tests",
 	"-deploy",
 	"-collapsed"
 ]
@@ -39,6 +40,9 @@ if (!args.length) {
 
         -no-build
             Disable building of output files
+
+        -no-tests
+            Disable running of unit tests
 
         -deploy
             Needed to enable deployment phase
