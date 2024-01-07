@@ -25,8 +25,8 @@ Usage: anio-gyp <project-root> [...options] [...flags]
                         }
                     },
                     "hashmap": {
-                        "<sha256-hash-of-v0.0.1>": "v0.0.1",
-                        "<sha256-hash-of-v0.0.2>": "v0.0.2"
+                        "<sha256-hash-of-v0.0.1>": "0.0.1",
+                        "<sha256-hash-of-v0.0.2>": "0.0.2"
                     }
                 }
 
