@@ -5,12 +5,12 @@
     "anio-gyp": "./src/cli.mjs"
   },
   "dependencies": {
-    "@anio-gyp/utilities": "^0.10.0",
+    "@anio-gyp/utilities": "^0.11.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.7.0"
   },
   "peerDependencies": {
-    "@anio-gyp/project": "0.2.x"
+    "@anio-gyp/project": "0.3.x"
   },
   "bundleDependencies": [
     "@anio-gyp/utilities"
