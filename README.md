@@ -77,11 +77,15 @@ However, factory functions can (in some cases) be automatically generated.
 ## Example output (library)
 
 ```
+⚡ Update phase
+
+    Skipping because of -no-update
+
 📝 Preparation phase
 
     Type of project               Library
-    Scan of src/export            Found 19 exports with 2 sub-modules
-    Files to auto-generate        9 files will be auto-generated
+    Scan of src/export            Found 18 exports and 2 sub-modules (fs, util)
+    Files to auto-generate        10 files will be auto-generated
     Files to build                3 files will be built
 
     Scan of src/auto              Found 0 out of date files or folders
@@ -91,9 +95,9 @@ However, factory functions can (in some cases) be automatically generated.
 
     Information about the bundler:
 
-        Version of bundler        v0.4.0
-        Version of utilities      v0.6.0
-        Version of runtime        v0.2.0
+        Version of bundler        v0.7.0
+        Version of utilities      v0.11.0
+        Version of runtime        v0.3.0
 
     The following files will be updated or created:
 
@@ -102,6 +106,7 @@ However, factory functions can (in some cases) be automatically generated.
         src/auto/importWithContextAsync.mjs                       lib:createImportFile
         src/auto/index.mjs                                        lib:createIndexFile
         src/auto/NOTICE.txt                                       lib:createNoticeFile
+        src/auto/VERSION.txt                                      lib:createVersionFile
         src/auto/support_files/createModifierFunction.mjs         lib:copySupportFile [synthetic]
         src/auto/support_files/createNamedAnonymousFunction.mjs   lib:copySupportFile [synthetic]
         src/auto/support_files/wrapFactory.mjs                    lib:copySupportFile [synthetic]
@@ -112,10 +117,9 @@ However, factory functions can (in some cases) be automatically generated.
 
     The following files will be included in the bundle:
 
-        bundle.resources/a/p.mj
-        bundle.resources/test.txt
+        No files will be included.
 
-    The bundle id was calculated to be : ba7b77fb759da573541467bef9ec82bd885cf15c (from 27 files)
+    The bundle id was calculated to be : 962a040d9b766ba7a163a3f072761afc02ffc369 (from 24 files)
 
 🧹 Housekeeping phase
 
@@ -135,6 +139,7 @@ However, factory functions can (in some cases) be automatically generated.
     Scrub src/auto/importWithContextAsync.mjs
     Scrub src/auto/index.mjs
     Scrub src/auto/NOTICE.txt
+    Scrub src/auto/VERSION.txt
     Scrub src/auto/support_files/createModifierFunction.mjs
     Scrub src/auto/support_files/createNamedAnonymousFunction.mjs
     Scrub src/auto/support_files/wrapFactory.mjs
@@ -150,16 +155,24 @@ However, factory functions can (in some cases) be automatically generated.
     Generate src/auto/importWithContextAsync.mjs
     Generate src/auto/index.mjs
     Generate src/auto/NOTICE.txt
+    Generate src/auto/VERSION.txt
     Generate src/auto/support_files/createModifierFunction.mjs
     Generate src/auto/support_files/createNamedAnonymousFunction.mjs
     Generate src/auto/support_files/wrapFactory.mjs
     Generate src/auto/support_files/wrapFunction.mjs
-    Build    build/library.mjs
-    Build    build/submodule/fs.mjs
-    Build    build/submodule/util.mjs
 
-✅ Bundling complete with no warnings
+🔨 Building phase
 
-    Generated 12 files in 0.105 second(s)
+    Build build/library.mjs             79.481 ms
+    Build build/submodule/fs.mjs         0.518 ms
+    Build build/submodule/util.mjs       0.285 ms
 
+🧪 Testing phase
+
+
+🚀 Deploying phase
+
+    Skipping because -deploy was not specified
+
+✅ Done in 0.103 seconds with no warnings
 ```
