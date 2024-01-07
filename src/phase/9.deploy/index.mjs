@@ -46,7 +46,6 @@ export default {
 			return
 		}
 
-		/*
 		const targets = arrayify(project.config.deployment)
 
 		const pad_to = longestDeployTitle(targets)
@@ -65,6 +64,6 @@ export default {
 			let time = performance.now() - start
 
 			print(round(time).toString().padStart(7) + "ms\n")
-		}*/
+		}
 	}
 }
