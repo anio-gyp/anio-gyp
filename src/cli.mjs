@@ -9,6 +9,7 @@ const args = process.argv.slice(2)
 const flags = args.length > 1 ? args.slice(1) : []
 const valid_flags = [
 	"-no-update",
+	"-force-update",
 	"-no-scrub",
 	"-no-remove",
 	"-no-autogen",
@@ -28,6 +29,9 @@ if (!args.length) {
 
         -no-update
             Disable update of project files before preparation
+
+        -force-update
+            Force update of files that have been changed from the original version
 
         -no-scrub
             Disable scrubbing of auto-generated files
