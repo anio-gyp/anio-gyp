@@ -1,6 +1,15 @@
 import print from "../../lib/print.mjs"
-import list from "./list/index.mjs"
 import {colorize} from "@anio-gyp/utilities"
+import determineFilesToUpdate from "./determineFilesToUpdate.mjs"
+
+import npmInstall from "./strategy/npmInstall.mjs"
+import writeFile from "./strategy/writeFile.mjs"
+
+function longestFilePath(files) {
+	return Math.max.apply(null, files.map(file => {
+		return file.path.length
+	}))
+}
 
 export default {
 	title: "Update",
@@ -8,30 +17,46 @@ export default {
 
 	async run(project) {
 		if (!project.flags["update"]) {
-			print(`    Skipping because of -no-update\n`)
+			print(`    Skipping because -update was not specified\n`)
 
 			return
 		}
 
-		/*
-		for (const {label, run} of list) {
-			print(`    Check ${colorize("gray", label)} `)
+		const files = await determineFilesToUpdate(project)
 
-			await run(project)
+		if (!files.length) {
+			print(`    All project files are up to date.\n`)
 
-			print(`\n`)
+			return
 		}
 
-		const files = project.state.files.update
+		print(`    The following files are deemed outdated and will be updated:\n\n`)
 
-		if (!files.length) return
-
-		print("\n")
-		print(`    The following files are deemed outdated and should be updated:\n\n`)
+		const offset = longestFilePath(files)
 
 		for (const file of files) {
-			print(`        ${file[0]}\n`)
+			const {strategy, data} = file.update
+
+			print(`        ${file.path.padEnd(offset, " ")} -> v${file.version} ${colorize("gray", `[${strategy}]`)}\n`)
+
+			const ctx = {
+				path: file.path,
+				data
+			}
+
+			switch (strategy) {
+				case "npmInstall": {
+					await npmInstall(project, ctx)
+				} break
+
+				case "writeFile": {
+					await writeFile(project, ctx)
+				} break
+
+				default: {
+					throw new Error(`Invalid update strategy '${strategy}'.`)
+				}
+			}
 		}
-		*/
 	}
 }
