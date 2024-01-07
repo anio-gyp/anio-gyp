@@ -109,7 +109,7 @@ However, factory functions can (in some cases) be automatically generated.
 ```
 ⚡ Update phase
 
-    Skipping because of -no-update
+    Skipping because -update was not specified
 
 📝 Preparation phase
 
@@ -125,8 +125,8 @@ However, factory functions can (in some cases) be automatically generated.
 
     Information about the bundler:
 
-        Version of bundler        v0.7.0
-        Version of utilities      v0.11.0
+        Version of bundler        v0.8.2
+        Version of utilities      v0.12.0
         Version of runtime        v0.3.0
 
     The following files will be updated or created:
@@ -149,7 +149,7 @@ However, factory functions can (in some cases) be automatically generated.
 
         No files will be included.
 
-    The bundle id was calculated to be : 962a040d9b766ba7a163a3f072761afc02ffc369 (from 24 files)
+    The bundle id was calculated to be : d7b7b44ffb50ae02ba6d41bf3e8892b164dd0b91 (from 24 files)
 
 🧹 Housekeeping phase
 
@@ -193,16 +193,17 @@ However, factory functions can (in some cases) be automatically generated.
 
 🔨 Building phase
 
-    Build build/library.mjs             79.481 ms
+    Build build/library.mjs             82.265 ms
     Build build/submodule/fs.mjs         0.518 ms
-    Build build/submodule/util.mjs       0.285 ms
+    Build build/submodule/util.mjs       0.215 ms
 
 🧪 Testing phase
 
+    Skipping because -tests was not specified
 
 🚀 Deploying phase
 
     Skipping because -deploy was not specified
 
-✅ Done in 0.103 seconds with no warnings
+✅ Done in 0.108 seconds with no warnings
 ```
