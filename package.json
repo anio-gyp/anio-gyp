@@ -1,6 +1,6 @@
 {
   "name": "anio-gyp",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "bin": {
     "anio-gyp": "./src/cli.mjs"
   },
