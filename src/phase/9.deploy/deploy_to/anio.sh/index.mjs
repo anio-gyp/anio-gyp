@@ -3,7 +3,7 @@ import {
 } from "@anio-gyp/utilities/fs"
 
 import {
-	parseResponse
+	parseRawHTTPResponse
 } from "@anio-gyp/utilities/http"
 
 import {execFileSync} from "child_process"
@@ -40,7 +40,7 @@ export default async function(project, deploy_config) {
 		}
 	)
 
-	result = parseResponse(`${result}`)
+	result = parseRawHTTPResponse(`${result}`)
 
 	if (result.code !== 200) {
 		throw new Error(`HTTP Status Code: ${result.code}`)
