@@ -54,7 +54,7 @@ Usage: anio-gyp <project-root> [...options] [...flags]
             Run unit tests before deployment phase
 
         -deploy
-            Needed to enable deployment phase
+            Enable deployment
 
 ```
 

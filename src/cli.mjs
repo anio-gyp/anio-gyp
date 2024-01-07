@@ -63,7 +63,7 @@ if (!args.length) {
             Run unit tests before deployment phase
 
         -deploy
-            Needed to enable deployment phase
+            Enable deployment
 \n`
 	)
 	process.exit(2)
