@@ -55,6 +55,8 @@ export default function(args) {
 			} else {
 				flags_obj[arg.slice(1)] = true
 			}
+		} else {
+			throw new Error(`anio-gyp does not take any more operands (operand '${arg}').`)
 		}
 	}
 
