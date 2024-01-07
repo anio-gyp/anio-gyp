@@ -4,7 +4,7 @@ import print from "../../lib/print.mjs"
 import {
 	colorize,
 	determineObsoleteFilesFromListSync
-} from "@anio-jsbundler/utilities"
+} from "@anio-gyp/utilities"
 
 export default async function(project) {
 	const remove_src_auto_list = determineObsoleteFilesFromListSync(

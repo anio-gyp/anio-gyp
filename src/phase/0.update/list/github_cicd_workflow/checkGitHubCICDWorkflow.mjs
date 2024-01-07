@@ -3,11 +3,11 @@ import path from "node:path"
 
 import {
 	makeGETRequest
-} from "@anio-jsbundler/utilities/http"
+} from "@anio-gyp/utilities/http"
 
 import {
 	calcStringHash
-} from "@anio-jsbundler/utilities"
+} from "@anio-gyp/utilities"
 
 export default async function(project) {
 	let newest = await makeGETRequest(`https://anio.sh/github_cicd.yaml.sha256`)

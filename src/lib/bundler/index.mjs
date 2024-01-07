@@ -35,7 +35,7 @@ export default async function(project, {entry, output}) {
 
 		/**
 		 * custom plugin has the responsibility
-		 * to resolve "@anio-jsbundler/project" to a ''virtual'' module
+		 * to resolve "@anio-gyp/project" to a ''virtual'' module
 		 * to support loading resources seamlessly
 		 */
 		plugins: [plugin(), resolve()],

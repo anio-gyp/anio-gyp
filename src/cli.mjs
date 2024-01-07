@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 import print from "./lib/print.mjs"
 import fs from "node:fs/promises"
 import path from "node:path"
@@ -22,7 +22,7 @@ let flags_obj = {}
 
 if (!args.length) {
 	print(
-		`Usage: anio-jsbundler <project-root> [...flags]
+		`Usage: anio-gyp <project-root> [...flags]
 
     Possible flags and their meaning:
 

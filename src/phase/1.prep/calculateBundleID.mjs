@@ -3,12 +3,12 @@ import path from "node:path"
 
 import {
 	calcStringHash
-} from "@anio-jsbundler/utilities"
+} from "@anio-gyp/utilities"
 
 import {
 	scandirSync,
 	calcFileHash
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 import determineFilesToBeChecksummed from "./determineFilesToBeChecksummed.mjs"
 

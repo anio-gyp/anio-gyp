@@ -14,7 +14,7 @@ async function readJSONFile(file) {
 async function getVersionOfDependency(dependency) {
 	const package_json = await readJSONFile(
 		// module must export "package.json" for this to work!
-		require.resolve(`@anio-jsbundler/${dependency}/package.json`)
+		require.resolve(`@anio-gyp/${dependency}/package.json`)
 	)
 
 	return package_json.version

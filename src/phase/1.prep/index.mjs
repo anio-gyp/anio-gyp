@@ -8,7 +8,7 @@ import scanDirectories from "./scanDirectories.mjs"
 import findBundledResources from "./findBundledResources.mjs"
 import calculateBundleID from "./calculateBundleID.mjs"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 export default {
 	title: "Preparation",

@@ -7,7 +7,7 @@ export default {
 		const runtime_root = path.join(
 			project.root,
 			"node_modules",
-			"@anio-jsbundler",
+			"@anio-gyp",
 			"project"
 		)
 

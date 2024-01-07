@@ -1,10 +1,10 @@
-import {IdentifierGenerator} from "@anio-jsbundler/utilities"
+import {IdentifierGenerator} from "@anio-gyp/utilities"
 
 import {
 	groupedImport,
 	namedExports,
 	defaultExportObject
-} from "@anio-jsbundler/utilities/codegenerator"
+} from "@anio-gyp/utilities/codegenerator"
 
 export default {
 	label: "lib:createIndexFile",

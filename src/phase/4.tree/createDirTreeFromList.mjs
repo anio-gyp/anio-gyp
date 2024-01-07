@@ -3,11 +3,11 @@ import print from "../../lib/print.mjs"
 import path from "node:path"
 import fs from "node:fs"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 import {
 	isRegularDirectorySync
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 export default function(project, list) {
 	let dirs = {}

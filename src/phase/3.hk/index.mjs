@@ -2,12 +2,12 @@ import path from "node:path"
 import print from "../../lib/print.mjs"
 import fs from "node:fs/promises"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 import {
 	isRegularDirectorySync,
 	removeDirectorySync
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 export default {
 	title: "Housekeeping",

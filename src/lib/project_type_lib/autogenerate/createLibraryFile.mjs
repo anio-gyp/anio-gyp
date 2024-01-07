@@ -1,5 +1,5 @@
-import {IdentifierGenerator} from "@anio-jsbundler/utilities"
-import {namedExports} from "@anio-jsbundler/utilities/codegenerator"
+import {IdentifierGenerator} from "@anio-gyp/utilities"
+import {namedExports} from "@anio-gyp/utilities/codegenerator"
 
 function importStatement(alias, path){
 	return `import ${alias} from ${JSON.stringify(path)}\n`
@@ -70,7 +70,7 @@ export default {
 
 		let src = ``
 
-		src += `import {createDefaultContextAsync} from "@anio-jsbundler/project"
+		src += `import {createDefaultContextAsync} from "@anio-gyp/project"
 import wrapFactory from "./support_files/wrapFactory.mjs"
 import wrapFunction from "./support_files/wrapFunction.mjs"
 

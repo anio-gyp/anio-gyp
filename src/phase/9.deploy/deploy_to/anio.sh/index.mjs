@@ -1,10 +1,10 @@
 import {
 	isRegularFileSync
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 import {
 	parseResponse
-} from "@anio-jsbundler/utilities/http"
+} from "@anio-gyp/utilities/http"
 
 import {execFileSync} from "child_process"
 import path from "node:path"

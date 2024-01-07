@@ -1,18 +1,18 @@
 {
-  "name": "anio-jsbundler",
+  "name": "anio-gyp",
   "version": "0.6.0",
   "bin": {
-    "anio-jsbundler": "./src/cli.mjs"
+    "anio-gyp": "./src/cli.mjs"
   },
   "dependencies": {
-    "@anio-jsbundler/utilities": "^0.10.0",
+    "@anio-gyp/utilities": "^0.10.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.7.0"
   },
   "peerDependencies": {
-    "@anio-jsbundler/project": "0.2.x"
+    "@anio-gyp/project": "0.2.x"
   },
   "bundleDependencies": [
-    "@anio-jsbundler/utilities"
+    "@anio-gyp/utilities"
   ]
 }

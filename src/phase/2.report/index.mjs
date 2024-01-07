@@ -1,5 +1,5 @@
 import print from "../../lib/print.mjs"
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 export default {
 	title: "Reporting",

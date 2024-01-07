@@ -1,6 +1,6 @@
 import path from "node:path"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 import getExportedLibraryFunctions from "../../../lib/project_type_lib/getExportedLibraryFunctions.mjs"
 import print from "../../../lib/print.mjs"

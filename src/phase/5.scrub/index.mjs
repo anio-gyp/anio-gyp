@@ -2,7 +2,7 @@ import print from "../../lib/print.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 export default {
 	title: "Scrubbing",

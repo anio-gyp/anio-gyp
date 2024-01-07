@@ -2,8 +2,8 @@ import getJavaScriptFilesRecursively from "./getJavaScriptFilesRecursively.mjs"
 import convertFilePathToExportName from "./convertFilePathToExportName.mjs"
 import filterReservedNames from "./filterReservedNames.mjs"
 
-import {stripSuffix} from "@anio-jsbundler/utilities"
-import {isRegularFileSync} from "@anio-jsbundler/utilities/fs"
+import {stripSuffix} from "@anio-gyp/utilities"
+import {isRegularFileSync} from "@anio-gyp/utilities/fs"
 
 export default async function(project) {
 	let javascript_files = await getJavaScriptFilesRecursively(project)

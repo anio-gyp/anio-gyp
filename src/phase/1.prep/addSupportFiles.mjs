@@ -1,7 +1,7 @@
 import {
 	isRegularDirectorySync,
 	scandirSync
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 import path from "node:path"
 import fs from "node:fs/promises"

@@ -5,13 +5,13 @@ import getAutoFileComment from "../../getAutoFileComment.mjs"
 
 import {
 	IdentifierGenerator
-} from "@anio-jsbundler/utilities"
+} from "@anio-gyp/utilities"
 
 import {
 	groupedImport,
 	namedExports,
 	defaultExportObject
-} from "@anio-jsbundler/utilities/codegenerator"
+} from "@anio-gyp/utilities/codegenerator"
 
 export default {
 	label: "lib:createSubModuleFile",

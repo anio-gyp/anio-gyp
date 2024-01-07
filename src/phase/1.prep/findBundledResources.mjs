@@ -4,7 +4,7 @@ import path from "node:path"
 import {
 	scandirSync,
 	isRegularDirectorySync
-} from "@anio-jsbundler/utilities/fs"
+} from "@anio-gyp/utilities/fs"
 
 export default async function(project) {
 	let bundle_resources = null

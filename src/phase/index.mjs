@@ -12,7 +12,7 @@ import test_phase from "./8.test/index.mjs"
 import deploy_phase from "./9.deploy/index.mjs"
 import print from "../lib/print.mjs"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 import printWarnings from "./printWarnings.mjs"
 

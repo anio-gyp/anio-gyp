@@ -1,7 +1,7 @@
-# anio-jsbundler
+# anio-gyp
 
 ```
-Usage: anio-jsbundler <project-root> [...flags]
+Usage: anio-gyp <project-root> [...flags]
 
     Possible flags and their meaning:
 
@@ -37,7 +37,7 @@ A library project will need to have the following root structure:
 /anio_project.mjs
 
 /src/export/ <- functions that get exposed to the outside world
-/src/auto/ <- automatically generated code by anio-jsbundler
+/src/auto/ <- automatically generated code by anio-gyp
 ```
 
 Optional directories:

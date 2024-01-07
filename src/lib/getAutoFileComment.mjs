@@ -15,10 +15,10 @@ export default async function(project) {
 
 	let str = ``
 
-	str += `/* Warning: this file was automatically created by anio-jsbundler v${major}.x.x */\n`
+	str += `/* Warning: this file was automatically created by anio-gyp v${major}.x.x */\n`
 
 	if (version_file_path.length) {
-		str += `/* You will find more information about the specific anio-jsbundler version used inside the file src/auto/VERSION.txt */\n`
+		str += `/* You will find more information about the specific anio-gyp version used inside the file src/auto/VERSION.txt */\n`
 	}
 
 	str += `/* You should commit this file to source control */\n\n`

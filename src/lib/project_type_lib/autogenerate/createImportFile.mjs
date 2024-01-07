@@ -1,9 +1,9 @@
-import {IdentifierGenerator} from "@anio-jsbundler/utilities"
+import {IdentifierGenerator} from "@anio-gyp/utilities"
 
 import {
 	objectLiteral,
 	groupedImport
-} from "@anio-jsbundler/utilities/codegenerator"
+} from "@anio-gyp/utilities/codegenerator"
 
 export default {
 	label: "lib:createImportFile",
@@ -53,7 +53,7 @@ export default {
 			pre_padding: 8
 		})
 
-		src += `import {createDefaultContextAsync} from "@anio-jsbundler/project"\n`
+		src += `import {createDefaultContextAsync} from "@anio-gyp/project"\n`
 
 		src += groupedImport("./library.mjs", grouped_import, {
 			additional_padding: 9

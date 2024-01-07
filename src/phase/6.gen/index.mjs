@@ -4,7 +4,7 @@ import getAutoFileComment from "../../lib/getAutoFileComment.mjs"
 import path from "node:path"
 import fs from "node:fs/promises"
 
-import {colorize} from "@anio-jsbundler/utilities"
+import {colorize} from "@anio-gyp/utilities"
 
 export default {
 	title: "Generation",
