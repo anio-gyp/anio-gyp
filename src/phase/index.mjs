@@ -47,7 +47,6 @@ export default async function(project) {
 		contextual_data: {},
 
 		files: {
-			update: [],
 			autogenerate: [],
 			build: [],
 			remove: [],
