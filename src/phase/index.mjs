@@ -34,7 +34,7 @@ function round(value) {
 }
 
 export default async function(project) {
-	project.meta = await getBundlerInformation()
+	project.meta = await getBundlerInformation(project)
 
 	project.state = {
 		bundle: {

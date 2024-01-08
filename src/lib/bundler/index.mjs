@@ -7,7 +7,7 @@ import path from "node:path"
 import fs from "node:fs/promises"
 
 export default async function(project, {entry, output}) {
-	const plugin = rollupPluginFactory({
+	const plugin = rollupPluginFactory(project, {
 		// bundle id
 		bundle_id: project.state.bundle.id.hash,
 		short_bundle_id: project.state.bundle.id.short,

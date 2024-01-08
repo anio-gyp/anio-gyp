@@ -4,16 +4,16 @@ import path from "node:path"
 import {fileURLToPath} from "node:url"
 import {createRequire} from "node:module"
 
-const require = createRequire(import.meta.url)
-
 const __dirname = path.dirname(
 	fileURLToPath(import.meta.url)
 )
 
-async function loadVirtualModule(build_context) {
+async function loadVirtualModule(project, build_context) {
 	const build_context_str = JSON.stringify(
 		JSON.stringify(build_context)
 	)
+
+	const require = createRequire(project.root + "/anio_project.mjs")
 
 	const bundle_runtime_src = require.resolve(
 		`@anio-gyp/project/dist/virtual.mjs`
@@ -29,7 +29,7 @@ async function loadVirtualModule(build_context) {
 	return virtual_module
 }
 
-export default function(build_context) {
+export default function(project, build_context) {
 	return function anioJSBundlerResolverPlugin() {
 		return {
 			name: "anio-gyp-resolver-plugin",
@@ -54,7 +54,7 @@ export default function(build_context) {
 
 			async load(id) {
 				if (id === "@anio-gyp/project") {
-					return await loadVirtualModule(build_context)
+					return await loadVirtualModule(project, build_context)
 				}
 
 				return null // other ids should be handled as usually
