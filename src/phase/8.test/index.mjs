@@ -12,6 +12,12 @@ export default {
 			print(`    Skipping because -tests was not specified\n`)
 
 			return
+		} else if (!("test" in project.config)) {
+			print(
+				colorize("gray", "    No tests configured!\n")
+			)
+
+			return
 		}
 	}
 }
