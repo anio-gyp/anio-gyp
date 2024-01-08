@@ -40,9 +40,7 @@ export default {
 		return
 	}
 
-	const meta = JSON.parse(${JSON.stringify(JSON.stringify(project.meta))})
-
-	process.stderr.write(\`Created with anio-gyp version \${meta.bundler.version}.\\n\`)
+	process.stderr.write(\`Created with anio-gyp version v${project.meta.bundler.version} and with @anio-gyp/utilities v${project.meta.bundler.utilities}.\\n\\n\`)
 	process.stderr.write(\`Bundle id is ${project.state.bundle.id.hash}.\\n\`)
 
 	process.stderr.write(\`\\n\`)
