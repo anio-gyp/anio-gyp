@@ -53,9 +53,11 @@ Usage: anio-gyp <project-root> [...options] [...flags]
         -tests
             Run unit tests before deployment phase
 
+        -tests-only
+            Run only unit tests and skip all other phases
+
         -deploy
             Enable deployment
-
 ```
 
 ## Types of projects
