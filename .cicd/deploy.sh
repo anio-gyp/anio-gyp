@@ -1,3 +1,3 @@
 #!/bin/bash -euf
 
-npm publish --access public
+npm publish --provenance --access public
