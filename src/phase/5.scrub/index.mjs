@@ -5,6 +5,7 @@ import fs from "node:fs/promises"
 import {colorize} from "@anio-gyp/utilities"
 
 export default {
+	id: "scrub",
 	title: "Scrubbing",
 	icon: "🧼",
 

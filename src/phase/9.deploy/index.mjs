@@ -30,6 +30,7 @@ function longestDeployTitle(targets) {
 }
 
 export default {
+	id: "deploy",
 	title: "Deploying",
 	icon: "🚀",
 

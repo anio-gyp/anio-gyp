@@ -11,6 +11,7 @@ import calculateBundleID from "./calculateBundleID.mjs"
 import {colorize} from "@anio-gyp/utilities"
 
 export default {
+	id: "prep",
 	title: "Preparation",
 	icon: "📝",
 

@@ -3,6 +3,7 @@ import print from "../../lib/print.mjs"
 import {colorize} from "@anio-gyp/utilities"
 
 export default {
+	id: "test",
 	title: "Testing",
 	icon: "🧪",
 

@@ -7,6 +7,7 @@ import fs from "node:fs/promises"
 import {colorize} from "@anio-gyp/utilities"
 
 export default {
+	id: "gen",
 	title: "Generation",
 	icon: "⚙️ ",
 

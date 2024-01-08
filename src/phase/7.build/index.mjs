@@ -11,6 +11,7 @@ function round(value) {
 }
 
 export default {
+	id: "build",
 	title: "Building",
 	icon: "🔨",
 

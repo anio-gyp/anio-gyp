@@ -12,6 +12,7 @@ function longestFilePath(files) {
 }
 
 export default {
+	id: "update",
 	title: "Update",
 	icon: "⚡",
 

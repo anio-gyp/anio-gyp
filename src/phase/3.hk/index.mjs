@@ -10,6 +10,7 @@ import {
 } from "@anio-gyp/utilities/fs"
 
 export default {
+	id: "hk",
 	title: "Housekeeping",
 	icon: "🧹",
 

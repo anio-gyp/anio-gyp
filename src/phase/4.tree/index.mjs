@@ -4,6 +4,7 @@ import print from "../../lib/print.mjs"
 import createDirTreeFromList from "./createDirTreeFromList.mjs"
 
 export default {
+	id: "tree",
 	title: "Tree generation",
 	icon: "🌳",
 
