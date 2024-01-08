@@ -9,11 +9,11 @@ export default {
 	async run(project) {
 		const {meta} = project
 
-		print(`    Information about the bundler:\n`)
+		print(`    Information about anio-gyp:\n`)
 		print("\n")
-		print(`        Version of bundler        ${colorize("gray", "v" + meta.bundler.version)}\n`)
+		print(`        Version of anio-gyp       ${colorize("gray", "v" + meta.bundler.version)}\n`)
 		print(`        Version of utilities      ${colorize("gray", "v" + meta.bundler.utilities)}\n`)
-		print(`        Version of runtime        ${colorize("gray", "v" + meta.runtime.version)}\n`)
+		print(`        Version of js-runtime     ${colorize("gray", "v" + meta.runtime.version)}\n`)
 		print("\n")
 
 		print(`    The following files will be updated or created:\n`)
