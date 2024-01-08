@@ -68,7 +68,15 @@ export default async function(project) {
 
 		print("\n")
 
-		await phase.run(project)
+		if (project.flags["tests-only"]) {
+			if (phase.id !== "test") {
+				print(`    Skipping because -tests-only was specified\n`)
+			} else {
+				await phase.run(project)
+			}
+		} else {
+			await phase.run(project)
+		}
 
 		print("\n")
 

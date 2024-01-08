@@ -10,6 +10,7 @@ const valid_flags = [
 	"-no-autogen",
 	"-no-build",
 	"-tests",
+	"-tests-only",
 	"-deploy",
 	"-collapsed"
 ]

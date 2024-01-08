@@ -8,7 +8,7 @@ export default {
 	icon: "🧪",
 
 	async run(project) {
-		if (!project.flags["tests"]) {
+		if (!project.flags["tests"] && !project.flags["tests-only"]) {
 			print(`    Skipping because -tests was not specified\n`)
 
 			return

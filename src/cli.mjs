@@ -62,6 +62,9 @@ if (!args.length) {
         -tests
             Run unit tests before deployment phase
 
+        -tests-only
+            Run only unit tests and skip all other phases
+
         -deploy
             Enable deployment
 \n`
