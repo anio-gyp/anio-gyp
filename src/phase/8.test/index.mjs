@@ -1,7 +1,7 @@
 import print from "../../lib/print.mjs"
 
 import {colorize} from "@anio-gyp/utilities"
-import loadProjectAnioJTest from "./loadProjectAnioJTest.mjs"
+import loadProjectJoyTest from "./loadProjectJoyTest.mjs"
 
 export default {
 	id: "test",
@@ -24,7 +24,7 @@ export default {
 		const {
 			createJTestSession,
 			expandAndValidateInputTestFiles
-		} = await loadProjectAnioJTest(project.root)
+		} = await loadProjectJoyTest(project.root)
 
 		const test_files = await expandAndValidateInputTestFiles(
 			project.root, project.config.test.input
