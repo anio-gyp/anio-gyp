@@ -5,7 +5,7 @@
     "anio-gyp": "./src/cli.mjs"
   },
   "dependencies": {
-    "@anio-gyp/utilities": "^0.12.2",
+    "@anio-gyp/utilities": "^0.13.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.12.0"
   },
