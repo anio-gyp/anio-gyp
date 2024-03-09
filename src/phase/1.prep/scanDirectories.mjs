@@ -1,10 +1,8 @@
 import path from "node:path"
 import print from "../../lib/print.mjs"
 
-import {
-	colorize,
-	determineObsoleteFilesFromListSync
-} from "@anio-gyp/utilities"
+import {colorize} from "@anio-gyp/utilities"
+import determineObsoleteFilesFromListSync from "../../lib/determineObsoleteFilesFromListSync.mjs"
 
 export default async function(project) {
 	const remove_src_auto_list = determineObsoleteFilesFromListSync(
