@@ -4,10 +4,7 @@ import path from "node:path"
 import fs from "node:fs"
 
 import {colorize} from "@anio-gyp/utilities"
-
-import {
-	isRegularDirectorySync
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 export default function(project, list) {
 	let dirs = {}
@@ -23,7 +20,7 @@ export default function(project, list) {
 
 		print(`    Create ${colorize("gray", dir)}\n`)
 
-		if (!isRegularDirectorySync(absolute_dir_path)) {
+		if (!nodeFsUtils.isRegularDirectory.sync(absolute_dir_path)) {
 			fs.mkdirSync(absolute_dir_path, {
 				recursive: true
 			})

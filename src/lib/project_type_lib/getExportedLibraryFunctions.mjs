@@ -3,7 +3,7 @@ import convertFilePathToExportName from "./convertFilePathToExportName.mjs"
 import filterReservedNames from "./filterReservedNames.mjs"
 
 import {stripSuffix} from "@anio-gyp/utilities"
-import {isRegularFileSync} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 export default async function(project) {
 	let javascript_files = await getJavaScriptFilesRecursively(project)
@@ -58,7 +58,7 @@ export default async function(project) {
 
 		const factory_path = `${project.root}/src/export/${entry.canonical_path}Factory.mjs`
 
-		const factory_exists = isRegularFileSync(factory_path)
+		const factory_exists = await nodeFsUtils.isRegularFile(factory_path)
 
 		library.push({
 			...entry,

@@ -1,14 +1,12 @@
 import path from "node:path"
-import {
-	isRegularFileSync
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 export default async function(project_root) {
 	const joytest_path = path.join(
 		project_root, "node_modules", "joytest", "package.json"
 	)
 
-	if (!isRegularFileSync(joytest_path)) {
+	if (!nodeFsUtils.isRegularFile.sync(joytest_path)) {
 		throw new Error(
 			`In order to use tests you need to install "joytest" in the project.`
 		)

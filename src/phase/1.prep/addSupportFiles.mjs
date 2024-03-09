@@ -1,6 +1,4 @@
-import {
-	isRegularDirectorySync
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 import scandir from "@anio-node-foundation/fs-scandir"
 
@@ -19,7 +17,7 @@ export default async function(project) {
 		__dirname, "..", "..", "lib", `project_type_${type}`, "support_files"
 	)
 
-	if (!isRegularDirectorySync(support_files_dir)) return
+	if (!nodeFsUtils.isRegularDirectory.sync(support_files_dir)) return
 
 	const files = await scandir(support_files_dir)
 

@@ -4,10 +4,7 @@ import fs from "node:fs/promises"
 
 import {colorize} from "@anio-gyp/utilities"
 
-import {
-	isRegularDirectorySync,
-	removeDirectorySync
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 export default {
 	id: "hk",
@@ -32,15 +29,11 @@ export default {
 				project.root, file
 			)
 
-			const type = isRegularDirectorySync(absolute_file_path) ? "dir" : "file"
+			const type = await nodeFsUtils.isRegularDirectory(absolute_file_path) ? "dir" : "file"
 
 			print(`    Remove out of date ${type.padEnd(4, " ")} ${file}\n`)
 
-			if (type === "dir") {
-				removeDirectorySync(absolute_file_path)
-			} else {
-				await fs.unlink(absolute_file_path)
-			}
+			await nodeFsUtils.remove(absolute_file_path)
 		}
 	}
 }

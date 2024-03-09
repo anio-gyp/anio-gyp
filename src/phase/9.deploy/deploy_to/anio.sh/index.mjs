@@ -1,6 +1,4 @@
-import {
-	isRegularFileSync
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 import {
 	parseRawHTTPResponse
@@ -21,7 +19,7 @@ export default async function(project, deploy_config) {
 		project.root, "build", "cli.mjs"
 	)
 
-	if (!isRegularFileSync(absolute_binary_path)) {
+	if (!nodeFsUtils.isRegularFile.sync(absolute_binary_path)) {
 		throw new Error(`No binary to publish!`)
 	}
 

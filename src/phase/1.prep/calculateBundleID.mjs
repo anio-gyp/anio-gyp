@@ -3,9 +3,7 @@ import path from "node:path"
 
 import calcHashStr from "@anio-node-foundation/calc-hash-str"
 
-import {
-	calcFileHash
-} from "@anio-gyp/utilities/fs"
+import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 import determineFilesToBeChecksummed from "./determineFilesToBeChecksummed.mjs"
 
@@ -20,9 +18,10 @@ export default async function(project) {
 
 	for (const file of files) {
 		const absolute_path = path.join(project.root, file)
+		const file_hash = await nodeFsUtils.hashFile(absolute_path, "sha1")
 
 		hashes.push(
-			`${file}:${await calcFileHash(absolute_path)}`
+			`${file}:${file_hash}`
 		)
 	}
 
