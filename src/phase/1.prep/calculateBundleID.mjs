@@ -4,7 +4,6 @@ import path from "node:path"
 import calcHashStr from "@anio-node-foundation/calc-hash-str"
 
 import {
-	scandirSync,
 	calcFileHash
 } from "@anio-gyp/utilities/fs"
 
