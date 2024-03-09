@@ -1,6 +1,4 @@
-import {
-	stripSuffix
-} from "@anio-gyp/utilities"
+import stripSuffix from "@anio-js-foundation/strip-suffix"
 
 export default function(name) {
 	let fn_name = name

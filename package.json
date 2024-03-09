@@ -7,6 +7,7 @@
   "dependencies": {
     "@anio-gyp/utilities": "^0.13.0",
     "@anio-js-foundation/alphabet-identifier-generator": "^1.0.0",
+    "@anio-js-foundation/strip-suffix": "^3.0.0",
     "@anio-node-foundation/calc-hash-str": "^1.0.0",
     "@anio-node-foundation/fs-scandir": "^2.0.1",
     "@anio-node-foundation/fs-utils": "^2.1.1",

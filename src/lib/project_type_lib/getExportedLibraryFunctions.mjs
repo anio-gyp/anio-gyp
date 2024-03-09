@@ -2,7 +2,7 @@ import getJavaScriptFilesRecursively from "./getJavaScriptFilesRecursively.mjs"
 import convertFilePathToExportName from "./convertFilePathToExportName.mjs"
 import filterReservedNames from "./filterReservedNames.mjs"
 
-import {stripSuffix} from "@anio-gyp/utilities"
+import stripSuffix from "@anio-js-foundation/strip-suffix"
 import nodeFsUtils from "@anio-node-foundation/fs-utils"
 
 export default async function(project) {
