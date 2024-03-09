@@ -1,4 +1,4 @@
-import {IdentifierGenerator} from "@anio-gyp/utilities"
+import AlphabetIdentifierGenerator from "@anio-js-foundation/alphabet-identifier-generator"
 
 import {
 	groupedImport,
@@ -13,7 +13,7 @@ export default {
 
 		let src = ""
 
-		const generator = new IdentifierGenerator()
+		const generator = new AlphabetIdentifierGenerator()
 
 		let grouped_import = [], default_export = []
 

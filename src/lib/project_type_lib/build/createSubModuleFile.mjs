@@ -3,9 +3,7 @@ import fs from "node:fs/promises"
 
 import getAutoFileComment from "../../getAutoFileComment.mjs"
 
-import {
-	IdentifierGenerator
-} from "@anio-gyp/utilities"
+import AlphabetIdentifierGenerator from "@anio-js-foundation/alphabet-identifier-generator"
 
 import {
 	groupedImport,
@@ -17,7 +15,7 @@ export default {
 	label: "lib:createSubModuleFile",
 
 	async run(project, file_path, additional_options) {
-		const generator = new IdentifierGenerator()
+		const generator = new AlphabetIdentifierGenerator()
 
 		const {submodule} = additional_options
 

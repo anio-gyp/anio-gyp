@@ -1,4 +1,4 @@
-import {IdentifierGenerator} from "@anio-gyp/utilities"
+import AlphabetIdentifierGenerator from "@anio-js-foundation/alphabet-identifier-generator"
 import {namedExports} from "@anio-gyp/utilities/codegenerator"
 
 function importStatement(alias, path){
@@ -84,7 +84,7 @@ export function getUsedDefaultContext() {
 }
 
 `
-		let generator = new IdentifierGenerator()
+		let generator = new AlphabetIdentifierGenerator()
 
 		for (const fn of library_functions) {
 			src += `/* ${fn.canonical_path} */\n`

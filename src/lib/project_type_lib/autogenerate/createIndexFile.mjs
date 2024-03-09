@@ -1,4 +1,4 @@
-import {IdentifierGenerator} from "@anio-gyp/utilities"
+import AlphabetIdentifierGenerator from "@anio-js-foundation/alphabet-identifier-generator"
 
 import {
 	groupedImport,
@@ -12,7 +12,7 @@ export default {
 	async run(project) {
 		const {library_functions} = project.state.contextual_data
 
-		const generator = new IdentifierGenerator()
+		const generator = new AlphabetIdentifierGenerator()
 
 		let src = ""
 
