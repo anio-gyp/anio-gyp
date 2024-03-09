@@ -4,7 +4,8 @@ import path from "node:path"
 import getUpdateURLForFile from "./getUpdateURLForFile.mjs"
 
 import {makeGETRequest} from "@anio-gyp/utilities/http"
-import {calcStringHash} from "@anio-gyp/utilities"
+
+import calcHashStr from "@anio-node-foundation/calc-hash-str"
 
 function parseVersionNumber(str) {
 	const [major, minor, bug] = str.split(".").map(x => parseInt(x, 10))
@@ -13,7 +14,7 @@ function parseVersionNumber(str) {
 }
 
 async function check(project, file_path) {
-	const current_hash = await calcStringHash(
+	const current_hash = await calcHashStr(
 		await fs.readFile(path.join(project.root, file_path)), "sha256"
 	)
 

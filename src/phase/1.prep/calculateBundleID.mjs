@@ -1,9 +1,7 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 
-import {
-	calcStringHash
-} from "@anio-gyp/utilities"
+import calcHashStr from "@anio-node-foundation/calc-hash-str"
 
 import {
 	scandirSync,
@@ -31,8 +29,8 @@ export default async function(project) {
 
 	const n_hashed_files = hashes.length
 
-	const hash = await calcStringHash(
-		hashes.join(",\n")
+	const hash = await calcHashStr(
+		hashes.join(",\n"), "sha1"
 	)
 
 	project.state.bundle.id = {
