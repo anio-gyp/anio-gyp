@@ -3,10 +3,6 @@ import path from "node:path"
 
 import scandir from "@anio-node-foundation/fs-scandir"
 
-import {
-	isRegularDirectorySync
-} from "@anio-gyp/utilities/fs"
-
 export default async function(project) {
 	let files_to_checksum = [
 		"package.json",
