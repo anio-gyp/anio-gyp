@@ -1,8 +1,9 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 
+import scandir from "@anio-node-foundation/fs-scandir"
+
 import {
-	scandirSync,
 	isRegularDirectorySync
 } from "@anio-gyp/utilities/fs"
 
@@ -12,7 +13,7 @@ export default async function(project) {
 	const bundle_resources_path = path.join(project.root, "bundle.resources")
 
 	if (isRegularDirectorySync(bundle_resources_path)) {
-		const bundle_resources_folder = scandirSync(bundle_resources_path)
+		const bundle_resources_folder = await scandir(bundle_resources_path)
 
 		const bundle_resources_files = bundle_resources_folder.filter(entry => {
 			return entry.type === "file"

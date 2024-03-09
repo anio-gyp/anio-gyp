@@ -1,7 +1,8 @@
 import {
-	isRegularDirectorySync,
-	scandirSync
+	isRegularDirectorySync
 } from "@anio-gyp/utilities/fs"
+
+import scandir from "@anio-node-foundation/fs-scandir"
 
 import path from "node:path"
 import fs from "node:fs/promises"
@@ -20,7 +21,7 @@ export default async function(project) {
 
 	if (!isRegularDirectorySync(support_files_dir)) return
 
-	const files = scandirSync(support_files_dir)
+	const files = await scandir(support_files_dir)
 
 	for (const file of files) {
 		if (file.type === "dir") continue

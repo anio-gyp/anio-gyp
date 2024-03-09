@@ -1,8 +1,9 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 
+import scandir from "@anio-node-foundation/fs-scandir"
+
 import {
-	scandirSync,
 	isRegularDirectorySync
 } from "@anio-gyp/utilities/fs"
 
@@ -13,7 +14,7 @@ export default async function(project) {
 	]
 
 	if (project.config.type === "lib") {
-		const source_folder = scandirSync(
+		const source_folder = await scandir(
 			path.join(project.root, "src")
 		)
 
